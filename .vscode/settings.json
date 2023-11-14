@@ -1,0 +1,15 @@
+{
+    "liveSassCompile.settings.generateMap": false,
+    "liveSassCompile.settings.formats": [
+  
+      {
+        "format": "compressed",
+        "extensionName": ".css",
+        "savePath": null,
+        "savePathReplacementPairs": null
+      }
+    ],
+    "liveSassCompile.settings.watchOnLaunch": true,
+    "liveSassCompile.settings.showOutputWindowOn": "Warning",
+    "liveServer.settings.port": 5500
+  }
