@@ -153,6 +153,11 @@ header.active {
     transform: translateY(-5px) rotate(-45deg);
 }
 
+.item-image img {
+    width: 100%;
+    height: auto;
+}
+
 main {
     height: 100%;
     min-width: 100%;
