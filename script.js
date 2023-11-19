@@ -205,6 +205,7 @@ function displayProducts() {
         const img = document.createElement('img');
         img.src = donut.imageURL;
         img.alt = donut.description; 
+        img.loading = 'lazy';
         itemImage.appendChild(img);
 
         //itemRating
