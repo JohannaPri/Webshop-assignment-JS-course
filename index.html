@@ -30,7 +30,7 @@
                 "telephone": "+467-056-8848",
                 "contactType": "customer service",
                 "areaServed": "SE",
-                "availableLanguage": ["Engelska"]
+                "availableLanguage": ["English"]
               },
             }
         </script>
@@ -38,48 +38,16 @@
 
     <body>
 
-        <header class="header">
-            <div class="logo">
-                <h1>Donut Factory</h1>
-            </div>
-            <div class="menu-cart">
-                <div class="cart">
-                    <img 
-                        src="assets/icons/shopping-cart.svg"
-                        alt="Icon that shows a shopping-cart, click to place your order"
-                        width="35px"
-                        height="35px"
-                    >
-                    <span class="cart-count">12</span>
-                    <span class="cart-total">1234kr</span>
-                </div>
-                <div class="hamburger-menu">
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                </div>
-            </div>
-        </header>
+        <div id="header">
+            
+        </div>
 
-        <nav class="menu-links" id="menu-links">
-            <ul class="menu-items">
-                <li><a href="#products">Home</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        
-        <main>
-            <section class="products" id="products">
-                <h2>Products</h2>
-                <ul class="product_items" id="product_items"></ul>
-            </section>
-            <section class="contact_payment" id="contact">
-                <h2>Contact & Payment</h2>
-            </section>
-        </main>
-    
-        <div class="shopping-cart" id="shopping-cart"></div>
+        <div class="shopping-cart" id="shopping-cart">
+            <div class="shopping-cart-title">Shopping Cart</div>
+            <div class="shopping-cart-items" id="shoppingCartItems">
+
+            </div>
+        </div>
 
         <footer>
 
@@ -89,3 +57,4 @@
     </body>
 
 </html>
+
