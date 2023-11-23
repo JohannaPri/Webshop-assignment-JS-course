@@ -4,6 +4,33 @@ body {
     list-style: none;
 }
 
+/* DARKTHEME */
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #645662;
+        color: white;
+    }
+    .header {
+        background-color: #4b4049 !important;
+    }
+    .cart-count {
+        background-color: #645662 !important;
+    }
+
+    .hamburger-menu .bar {
+        background-color: white !important;
+    }
+
+    .shopping-cart {
+        background-color: #645662 !important;
+    }
+
+    .shopping-cart.active {
+        background-color: #645662 !important;
+    }
+}
+
 /* HEADER */
 
 .header {
@@ -27,7 +54,6 @@ body {
 .header-inner {
     display: grid;
     grid-template-columns: auto 1fr auto;
-    /* Three columns: Hamburger menu, Logo, Cart */
     align-items: center;
 }
 
@@ -40,7 +66,12 @@ body {
     justify-content: center;
 }
 
-/*TOTALPRIS OCH ANTAL*/
+.donut-item {
+    min-height: fit-content;
+    max-height: fit-content;
+}
+
+/* TOTALPRICE AND QUANTITY */
 
 .cart-total {
     display: flex;
@@ -109,10 +140,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 12px;
+    font-size: .75rem;
 }
 
-/*BURGARMENY*/
+/* BURGERMENU */
 
 .hamburger-menu {
     cursor: pointer;
@@ -142,7 +173,7 @@ body {
     overflow: hidden;
 }
 
-/*KUNDVAGNEN*/
+/* SHOPPINGCART */
 
 @keyframes wiggle {
     0% {
@@ -170,7 +201,7 @@ body {
     animation: wiggle 0.5s ease-in-out;
 }
 
-/*SHOPPINGCART INNEHÅLL*/
+/* SHOPPINGCART CONTENT */
 
 .shopping-cart {
     display: grid;
@@ -316,7 +347,7 @@ body {
     border: none;
     text-align: center;
     width: 32px;
-    font-size: 16px;
+    font-size: 1rem;
     color: black;
     font-weight: 300;
     background-color: transparent;
@@ -347,7 +378,7 @@ body {
     background-color: #f6aeed;
 }
 
-/*BORTTAGNING STYLING AV KNAPP*/
+/* REMOVE THE OUTLINES AROUND BUTTONS/INPUTS */
 
 button:focus,
 input:focus {
@@ -396,7 +427,7 @@ header.active {
 .menu-links {
     display: none;
     position: fixed;
-    top: 11lvh;
+    top: 10lvh;
     left: 0;
     width: 100%;
     height: 100%;
@@ -497,10 +528,16 @@ h2 {
     align-items: center;
 }
 
-.item-name-price {
+.item-name {
     font-weight: bold;
     font-size: 1.2rem;
     letter-spacing: .1rem;
+}
+
+.item-price {
+    margin-top: .3rem;
+    font-weight: bold;
+    font-size: 1.1rem;
 }
 
 .item-category {
