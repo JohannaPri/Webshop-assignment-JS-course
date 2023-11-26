@@ -4,6 +4,10 @@ body {
     list-style: none;
 }
 
+button {
+    cursor: pointer;
+}
+
 /* DARKTHEME */
 
 @media (prefers-color-scheme: dark) {
@@ -28,6 +32,32 @@ body {
 
     .shopping-cart.active {
         background-color: #645662 !important;
+    }
+
+    .shopping-cart-item {
+        background-color: #645662 !important;
+        
+    }
+
+    .shopping-cart-item span {
+        color: white !important;
+    }
+
+    .shopping-cart-item input {
+        color: white !important;
+    }
+
+    .shopping-cart-btn span img {
+        color: white !important;
+    }
+
+    .menu-links.active {
+        background-color: rgba(99, 84, 97, 0.800);
+        backdrop-filter: blur(5px);
+    }
+
+    .menu-items a {
+        color: white !important;
     }
 }
 
@@ -125,6 +155,14 @@ body {
 
 .cart-icon {
     position: relative;
+    border: none;
+    background-color: transparent;
+}
+
+.shopping-cart-delete-btn {
+    position: relative;
+    border: none;
+    background-color: transparent;
 }
 
 .cart-count {
@@ -212,7 +250,7 @@ body {
     right: 0;
     width: 100%;
     height: 100%;
-    background-color: #fad7f6;
+    background-color: #FAD7F6;
     backdrop-filter: blur(5px);
     z-index: 9999;
     align-items: center;
@@ -366,16 +404,224 @@ body {
     width: 30px;
     height: 30px;
     border-radius: 50px;
+    background: rgba(255, 255, 255, 0.300);
+    backdrop-filter: blur(5px);
     border: 1px solid white;
-    background-color: #f6aeed;
 }
 
 .shopping-cart-plus-btn {
     width: 30px;
     height: 30px;
     border-radius: 50px;
+    background: rgba(255, 255, 255, 0.300);
+    backdrop-filter: blur(5px);
     border: 1px solid white;
-    background-color: #f6aeed;
+}
+
+.check-out-btn-container {
+    display: flex;
+    margin-top: 1rem;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.check-out-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 40px;
+    text-align: center;
+    background-color: rgba(242, 145, 231, 0.500);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 2px rgba(208, 208, 208, 0.8);
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: 1px solid white;
+    border-radius: 50px;
+}
+
+.check-out {
+    display: none;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    position: fixed;
+    top: -110%;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FAD7F6;
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    align-items: center;
+    text-align: center;
+    transition: top .5s ease-in-out;
+    scroll-behavior: smooth;
+}
+
+.check-out.active {
+    display: grid;
+    position: fixed;
+    flex-direction: column;
+    top: 10lvh;
+    right: 0;
+}
+
+.checkout-section {
+    display: flex;
+    flex-direction: column;
+    min-height: 100lvh;
+    justify-content: space-between;
+    padding-bottom: 70px;
+    scroll-behavior: smooth;
+    padding-top: 10px;
+    background-color: #FAD7F6;
+
+}
+
+.checkout-section h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 0.063rem;
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 1px solid whitesmoke;
+}
+
+.button-container {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.button-container button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #f293e7;
+    border: 1px solid white;
+    color: black;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 2px rgba(208,208,208,.8);
+}
+
+.invoice-option-button, .card-option-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #f293e7;
+    border: 1px solid white;
+    color: black;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 2px rgba(208,208,208,.8);
+}
+
+.button-container #checkOutNext1 {
+    align-items: center;
+    margin: 0 auto;
+}
+
+.checkout-section input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 2px;
+    border: none;
+    border-radius: 4px;
+}
+
+.checkout-section label {
+    display: flex;
+    width: 80%;
+    text-align: left;
+    padding-left: 10%;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    font-size: .9rem;
+}
+
+.card-details {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.invoice-details {
+    display: none;
+}
+
+.card-details label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.card-container {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px auto;
+    text-transform: uppercase;
+}
+
+.expire-date, .security-code {
+    flex: 1;
+    min-width: 0;
+}
+
+.expire-date input, .security-code input {
+    width: 50%;
+}
+
+.expire-date label, .security-code label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 10px auto;
+    padding: 0px !important;
+}
+
+.payment-options-button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.payment-options-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.card-option-button, .invoice-option-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+}
+
+.option-or-text {
+    font-size: 16px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+@media screen and (min-width: 768px) {
+    .checkout-section {
+        padding-bottom: 0;
+    }
 }
 
 /* REMOVE THE OUTLINES AROUND BUTTONS/INPUTS */
@@ -386,7 +632,7 @@ input:focus {
 }
 
 .shopping-cart-total-price {
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
     font-size: 1rem;
@@ -555,7 +801,7 @@ h2 {
 .btn-plus {
     width: 3.5rem;
     height: 3.5rem;
-    border-radius: 10rem;
+    border-radius: 50px;
     background: rgba(255, 255, 255, 0.300);
     backdrop-filter: blur(5px);
     border: 1px solid white;
@@ -583,4 +829,9 @@ h2 {
     backdrop-filter: blur(5px);
     transition: .3s ease;
     box-shadow: 0 0 2px rgba(208, 208, 208, 0.10);
+}
+
+.invoice-option-button:disabled {
+    background-color: lightgray;
+    color: #aaa;
 }
