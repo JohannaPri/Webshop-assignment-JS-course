@@ -2,13 +2,14 @@ body {
     background-color: #FAD7F6;
     font-family: 'Roboto', sans-serif;
     list-style: none;
+
 }
 
 button {
     cursor: pointer;
 }
 
-/* DARKTHEME */
+/* DARKMODE */
 
 @media (prefers-color-scheme: dark) {
     body {
@@ -58,6 +59,24 @@ button {
 
     .menu-items a {
         color: white !important;
+    }
+
+    .checkout-section {
+        background-color: #645662 !important;
+        color: white !important;
+    }
+
+    .checkbox-discount-container p {
+        color: white !important;
+    }
+
+    .check-out-btn {
+        background: #f293e7 !important;
+    }
+
+    .filter-view {
+        background-color: #645662 !important;
+        color: white;
     }
 }
 
@@ -186,6 +205,9 @@ button {
 .hamburger-menu {
     cursor: pointer;
     margin-right: 1rem;
+    position: relative;
+    border: none;
+    background-color: transparent;
 }
 
 .hamburger-menu .bar {
@@ -235,11 +257,101 @@ button {
     }
 }
 
+/* SHOPPINGCART CONTENT */
+
 .cart-wiggle {
     animation: wiggle 0.5s ease-in-out;
 }
 
-/* SHOPPINGCART CONTENT */
+.filter-icon {
+    display: flex;
+    position: absolute;
+    position: fixed;
+    top: 10lvh;
+    right: 2lvh;
+    background: transparent;
+    border: none;
+    margin-top: 10px;
+}
+
+.filter-view {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 20lvh;
+    left: 0;
+    width: 50%;
+    height: 30%;
+    background-color: #f293e7;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .8);
+    z-index: 9999;
+    max-width: 400px;
+    margin: 0 auto;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: .3s ease;
+}
+
+.filter-view.active {
+    display: flex;
+}
+
+
+.filter-view h2 {
+    display: flex;
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.filter-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.filters label, .filters select {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.filters select {
+    margin-top: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+.filters input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 3px;
+    margin-right: 19px;
+    cursor: pointer;
+}
+
+.filters input[type="checkbox"]:checked {
+    background-color: #FAD7F6;
+    border-color: white;
+  }
+
+  .filters p {
+    font-weight: bold;
+  }
+
+
 
 .shopping-cart {
     display: grid;
@@ -469,15 +581,27 @@ button {
 }
 
 .checkout-section {
-    display: flex;
+    display: block;
     flex-direction: column;
     min-height: 100lvh;
+    max-width: 100%;
     justify-content: space-between;
     padding-bottom: 70px;
     scroll-behavior: smooth;
     padding-top: 10px;
     background-color: #FAD7F6;
+}
 
+.checkout-section label {
+    font-size: 1rem;
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.063rem;
+    text-transform: uppercase;
+    text-align: start;
+    padding-left: 50px;
+    padding-top: 5px;
+    font-size: .9rem;
 }
 
 .checkout-section h2 {
@@ -496,6 +620,23 @@ button {
     justify-content: space-between;
     align-items: center;
     padding: 15px;
+}
+
+.order-summary {
+    margin-top: -45%;
+}
+
+.checkout-price-amount {
+    display: flex;
+    position: absolute;
+    top: 40lvh;
+    right: 15lvh;
+    flex-direction: column;
+    justify-content: left;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: smaller;
+    font-weight: bold;
 }
 
 .button-container button {
@@ -527,25 +668,107 @@ button {
     margin: 0 auto;
 }
 
-.checkout-section input {
+.checkout-section input[type="text"], [type="tel"], [type="email"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    max-width: 100%;
+    min-width: 80%;
     margin: 0 auto;
     padding: 2px;
     border: none;
     border-radius: 4px;
 }
 
-.checkout-section label {
+.checkout-information {
+    width: 100%;
+    position: absolute;
+    top: 11lvh;
+    background-color: #f293e7;
+    color: black;
+    text-transform: uppercase;
+    font-size: smaller;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.order-summary-table-items {
+    width: 100%;
+    color: black;
+    text-transform: uppercase;
+    font-size: smaller;
+    margin-bottom: 4px;
+    background: #FAD7F6;
+    border: none !important;
+    font-weight: 400;
+}
+
+.checkout-section .discount-code label {
     display: flex;
     width: 80%;
     text-align: left;
-    padding-left: 10%;
+    padding-left: 5%;
     letter-spacing: .1rem;
     text-transform: uppercase;
     font-size: .9rem;
+    margin-top: 10px;
+}
+
+.checkout-section .discount-code input {
+    margin-left: 23px;
+    width: 50%;
+}
+
+.checkout-section .checkbox-container {
+    display: flex;
+    justify-content: left;
+    margin-top: 30px;
+    margin-left: 25px;
+    font-style: italic;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+}
+
+.newsletter-container, .personaldata-container {
+    display: flex;
+    justify-content: left;
+    margin-top: 30px;
+    margin-left: 25px;
+    font-style: italic;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+}
+
+.checkbox-discount-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.personaldata-container input[type="checkbox"], .newsletter-container input[type="checkbox"] {
+    display: inline-block;
+    margin-right: 5px;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.checkout-section .personaldata-container, .newsletter-container label {
+    display: flex;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.personaldata-container, .newsletter-container p {
+    font-size: smaller;
+}
+
+.personaldata-container input[type="checkbox"]:checked, .newsletter-container input[type="checkbox"]:checked {
+    background-color: #f293e7;
 }
 
 .card-details {
@@ -622,13 +845,6 @@ button {
     .checkout-section {
         padding-bottom: 0;
     }
-}
-
-/* REMOVE THE OUTLINES AROUND BUTTONS/INPUTS */
-
-button:focus,
-input:focus {
-    outline: 0;
 }
 
 .shopping-cart-total-price {

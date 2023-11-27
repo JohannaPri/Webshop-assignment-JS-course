@@ -6,7 +6,7 @@ const productsArray = [
         originalPrice: 3.55,
         category: 'Vegan', 
         rating: 4, 
-        imageURL: 'assets/compressed_photos/bright-and-delicious.png',
+        imageURL: 'assets/compressed_photos/bright-and-delicious-min.png',
         description: 'A delicious donut with orange glaze and sprinkles',
         quantity: 0,
     },
@@ -17,7 +17,7 @@ const productsArray = [
         originalPrice: 2.75,
         category: 'Fruit', 
         rating: 3, 
-        imageURL: 'assets/compressed_photos/bloody-strawberry.png',
+        imageURL: 'assets/compressed_photos/bloody-strawberry-min.png',
         description: 'A donut with a bright red strawberry cream coating',
         quantity: 0,
     },
@@ -28,7 +28,7 @@ const productsArray = [
         originalPrice: 4.85,
         category: 'Chocolate', 
         rating: 5, 
-        imageURL: 'assets/compressed_photos/cobnut-chocolate-and-amazing.png',
+        imageURL: 'assets/compressed_photos/cobnut-chocolate-and-amazing-min.png',
         description: 'A donut with a chocolate cover with finely chopped hazelnut',
         quantity: 0,
     },
@@ -39,7 +39,7 @@ const productsArray = [
         originalPrice: 3.25,
         category: 'Chocolate', 
         rating: 3., 
-        imageURL: 'assets/compressed_photos/crispy-chocolate.png',
+        imageURL: 'assets/compressed_photos/crispy-chocolate-min.png',
         description: 'A donut dipped in chocolate with crunchy sprinkles',
         quantity: 0,
     },
@@ -50,7 +50,7 @@ const productsArray = [
         originalPrice: 4.25,
         category: 'Caramel', 
         rating: 5, 
-        imageURL: 'assets/compressed_photos/extra-extra-caramel.png',
+        imageURL: 'assets/compressed_photos/extra-extra-caramel-min.png',
         description: 'A donut with wonderful caramel drizzle and fantastic crunch',
         quantity: 0,
     },
@@ -61,7 +61,7 @@ const productsArray = [
         originalPrice: 3.45,
         category: 'Chocolate', 
         rating: 3, 
-        imageURL: 'assets/compressed_photos/les-is-more-chocolate.png',
+        imageURL: 'assets/compressed_photos/les-is-more-chocolate-min.png',
         description: 'A chocolate dipped donut with crushed chocolate on top',
         quantity: 0,
     },
@@ -72,7 +72,7 @@ const productsArray = [
         originalPrice: 2.65,
         category: 'Vegan', 
         rating: 3, 
-        imageURL: 'assets/compressed_photos/pink-still-going-strong.png',
+        imageURL: 'assets/compressed_photos/pink-still-going-strong-min.png',
         description: 'A bright pink donut with colorful sprinkles on top',
         quantity: 0,
     },
@@ -83,7 +83,7 @@ const productsArray = [
         originalPrice: 2.85,
         category: 'Plane',
         rating: 2, 
-        imageURL: 'assets/compressed_photos/plane-but-fabolous.png',
+        imageURL: 'assets/compressed_photos/plane-but-fabolous-min.png',
         description: 'A plain donut with a little bit of green and white glaze',
         quantity: 0,
     },
@@ -94,7 +94,7 @@ const productsArray = [
         originalPrice: 4.85,
         category: 'Red Velvet', 
         rating: 5, 
-        imageURL: 'assets/compressed_photos/red-velvet-match-in-heaven.png',
+        imageURL: 'assets/compressed_photos/red-velvet-match-in-heaven-min.png',
         description: 'An extraordinary red velvet donut with a magical raspberry glaze and crunch',
         quantity: 0,
     },
@@ -105,7 +105,7 @@ const productsArray = [
         originalPrice: 3.45,
         category: 'Sprinkles', 
         rating: 4,
-        imageURL: 'assets/compressed_photos/sprinkles-all-the-way.png',
+        imageURL: 'assets/compressed_photos/sprinkles-all-the-way-min.png',
         description: 'A donut with chocolate cover and orange glaze with sprinkles',
         quantity: 0,
     },
@@ -115,7 +115,54 @@ let shoppingCart = [];
 let productsFromArray = [];
 
 document.addEventListener('DOMContentLoaded', function() {
+    //DarkMode 
     const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark').matches;
+
+    function filterAndSortProducts(category = '', minPrice = 0, minRating = 0, sortType = '') {
+      if (category === '' && minPrice <= 0 && minRating <= 0 && sortType === '') {
+          return [...productsArray];
+      }
+    
+      let filteredProducts = [...productsArray];
+    
+      if (category !== '') {
+          filteredProducts = filteredProducts.filter(product => product.category.toLowerCase().includes(category.toLowerCase()));
+      }
+    
+      if (minPrice > 0) {
+          filteredProducts = filteredProducts.filter(product => product.price >= minPrice);
+      }
+    
+      if (minRating > 0) {
+          filteredProducts = filteredProducts.filter(product => product.rating >= minRating);
+      }
+    
+      switch (sortType.toLowerCase()) {
+          case 'a-z':
+              filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+              break;
+          case 'z-a':
+              filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
+              break;
+          case 'category':
+              filteredProducts.sort((a, b) => a.category.localeCompare(b.category));
+              break;
+          case 'price-low-high':
+              filteredProducts.sort((a, b) => a.price - b.price);
+              break;
+          case 'price-high-low':
+              filteredProducts.sort((a, b) => b.price - a.price);
+              break;
+          case 'rating-high-low':
+              filteredProducts.sort((a, b) => b.rating - a.rating);
+              break;
+          default:
+              // Do nothing.
+              break;
+      }
+    
+      return filteredProducts;
+    }
 
     window.onload = function() {
       let productsFromArray = [...productsArray];
@@ -123,7 +170,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
     function fetchAndUpdateProduct(products) {
-        renderProducts(applyWeekendSurcharge(products));
+      //applyQuantityDiscount(products);
+      renderProducts(applyWeekendSurcharge(products));
     }
     
 document.querySelector('#header').innerHTML = `
@@ -131,16 +179,16 @@ document.querySelector('#header').innerHTML = `
   <header>
     <div class="header">
       <div class="header-inner">
-        <div class="hamburger-menu" aria-label="open menu">
+        <button class="hamburger-menu" aria-label="open menu">
           <div class="bar"></div>
           <div class="bar"></div>
           <div class="bar"></div>
-        </div>
+        </button>
         <div class="menu-logo">Donut Factory</div>
         <div class="cart-total">
           <span class="amount" id="menuCartAmount">0.00€</span>
           <button class="cart-icon" id="cartIcon" aria-label="Shopping Cart Button">
-            <img class="icon-svg" src="assets/icons/shopping-cart_dark.svg" alt="Icon for shopping cart">
+            <img class="icon-svg" src="assets/icons/shopping-cart_dark.svg" width="27" height="27" alt="Icon for shopping cart">
             <div class="cart-count" id="menuCartCount">0</div>
           </button>
         </div>
@@ -150,6 +198,9 @@ document.querySelector('#header').innerHTML = `
       <ul class="product-items" id="product-items"></ul>
     </main>
   </header>
+  <button class="filter-icon" id="filterIcon" aria-label="Filter button">
+  <img class="filter-icon-svg" src="assets/icons/filter-list.svg" width="35" height="35" alt="Icon to filter the donuts">
+  </button>
   <nav class="menu-links" id="menu-links">
   <ul class="menu-items">
       <li><a href="#products">About us</a></li>
@@ -225,7 +276,7 @@ document.querySelector("#checkOut").innerHTML = `
                       </div>
                     </div>
                     <div class="invoice-details">
-                      <label for="socialSecurityNumber">Social Security Number</label>
+                      <label for="socialSecurityNumber">Social Security Number:</label>
                       <input type="text" id="socialSecurityNumber" name="socialSecurityNumber" placeholder="19880708-3568">
                     </div>
                   <div class="button-container">
@@ -235,22 +286,48 @@ document.querySelector("#checkOut").innerHTML = `
               </div> 
               <div class="checkout-section" id="section3">
                   <h2>Order Details</h2>
-                  <div class="checkout-information">
-                    <span class="order-name">Name:</span>
-                    <span class="order-quantity">Quantity:</span>
-                    <span class="order-price">Price:</span>
+
+                  <table class="checkout-information" border="0" cellspacing="0" cellpadding="0">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                      </tr>
+                    </thead>
+                    <tbody class="order-summary-table-items" id="orderSummaryTableItems">
+                    </tbody>
+                  </table>
+
+
+                  <div class="checkout-price-amount">
+                    <div class="order-subtotal" id="orderSubTotal">Subtotal: <span id="SSubTotal">0.00€</span></div>
+                    <div class="order-discount" id="orderDiscount">Discount(S): <span id="SDiscount"></span></div>
+                    <div class="order-shipping" id="orderShipping">Shipping: <span id="SShipping">0.00€</span></div>
+                    <div class="order-grandtotal" id="orderGrandTotal">Grandtotal: <span id="SGrandTotal">0.00€</span></div>
                   </div>
-                  <div class="cheackout-price-amount">
-                    <span class="order-subtotal">Subtotal:</span>
-                    <span class="order-discount">Discount:</span>
-                    <span class="order-shipping">Shipping:</span>
-                    <span class="order-grandtotal">Grandtotal:</span>
-                  </div>
+                  
+                  <div class="checkbox-discount-container">
                   <div class="discount-code">
-                    <label for="discountCode">Discount Code</label>
-                    <input type="text" id="discountCode" name="discountCode">
+                  <label for="discountCode">Discount Code:</label>
+                  <input type="text" id="discountCode" name="discountCode">
                   </div>
-                  <div class="button-container">
+                  <div class="checkbox-containers" id="personalDataProcessing">
+                    <div class="personaldata-container">
+                      <label for="personalDataProcessing">
+                        <input type="checkbox" id="personalDataAccept" name="personalDataProcessing" aria-label=" accept personal data processing" >
+                        <p>I agree with the conditions</p>
+                      </label>
+                    </div>
+                    <div class="newsletter-container" id="newsLetterSubscription">
+                    <label for="newsLetterSubscription">
+                      <input type="checkbox" aria-label="checkbox to subscribe on newsletter" name="newsLetterSubscription" checked>
+                      <p>Subscribe to Our Newsletter</p>
+                    </label>
+                  </div>
+                </div>
+                  </div>
+                  <div class="button-container order-summary">
                       <button id="checkOutReset" type="button">Reset All</button>
                       <button id="checkOutPrevious2" type="button">Previous</button>
                       <button id="placeOrder" type="submit">Place Order</button>
@@ -258,6 +335,28 @@ document.querySelector("#checkOut").innerHTML = `
               </div>
           </form>
           </div>
+`;
+
+document.querySelector("#filterDiv").innerHTML = `
+<div class="filter-view" id="filterView">
+    <h2>Filter Options</h2>
+    <div class="filters">
+        <label>
+            <input type="checkbox" id="filterTopRated" aria-label="check-box to filter the donuts">
+            <p>Top Rated</p>
+        </label>
+        <select id="filterSortOrderLH">
+            <option value="">No Filter</option>
+            <option value="low-to-high">Low to High Price</option>
+            <option value="high-to-low">High to Low Price</option>
+        </select>
+        <select id="filterSortOrderAZ">
+            <option value="">No Filter</option>
+            <option value="a-to-z">A to Z Name</option>
+            <option value="z-to-a">Z to A Name</option>
+        </select>
+    </div>
+</div>
 `;
 
 const shoppingCartButton = document.querySelector('#cartIcon');
@@ -372,7 +471,6 @@ nextButton1.addEventListener("click", function (event) {
     //Not using! 
     //errorContainer.innerHTML = 
     //"<ul>" + errorMessages.map((msg) => `<li>${msg}</li>`).join("") + "</ul>";
-
     alert(errorMessages.map((msg) => msg).join('\n'));
   } else {
     errorContainer.innerHTML = "";
@@ -383,27 +481,19 @@ nextButton1.addEventListener("click", function (event) {
 nextButton2.addEventListener("click", function (event) {
   event.preventDefault();
 
-  const ssNumber = document.getElementById("socialSecurityNumber").value.trim();
+  const ssnInput = document.getElementById("socialSecurityNumber");
   const cardName = document.getElementById("cardHolderName").value.trim();
   const cardNumber = document.getElementById("cardNumber").value.trim();
 
-  const ssnInput = document.getElementById("socialSecurityNumber");
   const ssnPattern = /^(19|20)?(\d{6}[-+]|\d{8})\d{4}$/;
-  //collectFormData();
-  const errorContainer = document.getElementById("errorMessages");
-  if (!ssnPattern.test(ssnInput.value) === true) {
-    if (cardName !== '' && cardNumber !== '') {
-        navigateToNext();
-    } else {
-        alert("Oops! Something went wrong, try again!");
-        return;
-    }
-    alert("Oops! Something went wrong, try again!");
-    return;
-  } else {
-    navigateToNext(); 
-  }
 
+if (ssnPattern.test(ssnInput.value)) {
+  navigateToNext();
+} else if (cardName !== '' && cardNumber !== '') {
+  navigateToNext()
+} else {
+  alert("Opps! Something went wrong! Please try again.");
+}
 });
 
 prevButtons.forEach((button) => {
@@ -419,10 +509,25 @@ function collectFormData() {
   }
 }
 
-form.addEventListener("submit", function (event) { 
-    event.preventDefault();
+const placeOrderButton = document.getElementById('placeOrder');
+placeOrderButton.addEventListener('click', function(event) {
+event.preventDefault();
+personalDataCheckboxChecker();
+});
+
+function personalDataCheckboxChecker() {
+  const personalDataCheckbox = document.getElementById('personalDataAccept');
+  const isPersonalDataChecked = personalDataCheckbox.checked;
+
+  if (isPersonalDataChecked) {
     collectFormData();
- });
+    alert('Thank you for your order!\n\nWe will deliver your donuts to your address in 2 days.');
+  } else {
+    alert('You need to accept our terms of conditions.');
+    return;
+  }
+
+}
 
 showSection(currentSection);
 
@@ -449,13 +554,34 @@ function toggleMenu() {
     menu.classList.toggle('active');
     menuLinks.classList.toggle('active');
     document.querySelector('.header').classList.toggle('active');
-    //document.body.classList.toggle('no-scroll');
+    menu.classList.contains('active') ? document.body.classList.add('no-scroll') : document.body.classList.remove('no-scroll');
 }
 
 menu.addEventListener('click', function() {
     console.log('Toggle Menu!');
     toggleMenu(); 
 });
+
+function addItemToOrderSummary(cartItem) {
+  const orderSummaryTable = document.getElementById('orderSummaryTableItems');
+
+  const newRow = document.createElement('tr');
+
+  const nameCell = document.createElement('td');
+  nameCell.textContent = cartItem.name;
+
+  const quantityCell = document.createElement('td');
+  quantityCell.textContent = cartItem.quantity;
+
+  const priceCell = document.createElement('td');
+  priceCell.textContent = `${(cartItem.quantity * cartItem.price).toFixed(2)}€`;
+
+  newRow.appendChild(nameCell);
+  newRow.appendChild(quantityCell);
+  newRow.appendChild(priceCell);
+
+  orderSummaryTable.appendChild(newRow);
+}
 
 function generateShoppingCartItem(cartItem) {
     const shoppingCartItem = document.createElement('div');
@@ -480,13 +606,13 @@ function generateShoppingCartItem(cartItem) {
             <span class="desc-desc">${cartItem.description}</span>
         </div>
         <div class="shopping-cart-quantity">
-            <button class="shopping-cart-minus-btn" id=shoppingCartBtnMinus-${
+            <button class="shopping-cart-minus-btn" aria-label="Remove from shopping cart" id=shoppingCartBtnMinus-${
               cartItem.id
             } data-id=${cartItem.id}>-</button>
             <input type="text" id=shoppingCartInputValue-${cartItem.id} value=${
       cartItem.quantity
     }>
-            <button class="shopping-cart-plus-btn" id=shoppingCartBtnPlus-${
+            <button class="shopping-cart-plus-btn" aria-label="Add to shopping cart" id=shoppingCartBtnPlus-${
               cartItem.id
             } data-id=${cartItem.id}>+</button>
         </div>
@@ -555,21 +681,29 @@ function renderShoppingCartItems() {
 
     checkOutBtn.addEventListener('click', function() {
         console.log('Checkout button');
+        startOrderTimer();
         const checkOutView = document.querySelector(".check-out");
-        const shoppingCart = document.querySelector('.shopping-cart');
+        const shoppingCartDiv = document.querySelector('.shopping-cart');
         checkOutView.classList.toggle("active");
-        shoppingCart.classList.remove('active');
+        shoppingCartDiv.classList.remove('active');
+
+      console.log('CLICK!');
+      console.log(shoppingCart);
+      shoppingCart.map((cartItem) => addItemToOrderSummary(cartItem));
+      addToOrderSummarySubTotal(shoppingCart); 
     });
 }
 
 function renderProducts(products) {
   const productItemsUL = document.querySelector("#product-items");
   productItemsUL.innerHTML = "";
-  const li = document.createElement("li");
-  li.classList.add("donut-item");
-  li.id = "donut-item";
+
 
   products.forEach((product) => {
+    const li = document.createElement("li");
+    li.classList.add("donut-item");
+    li.id = "donut-item";
+
     //itemImage
     const itemImage = document.createElement("div");
     itemImage.classList.add("item-image");
@@ -676,7 +810,6 @@ function generateStarRating(value) {
 }
 
 function addToShoppingCart(product) {
-    applyQuantityDiscount(shoppingCart);
     console.log('Product added to Shoppingcart: ', product);
 
     const cartIcon = document.getElementById('cartIcon');
@@ -708,6 +841,10 @@ function addToShoppingCart(product) {
     }
     console.log('VARUKORG: ', shoppingCart);
     getTotalOfItemsAndPrice(shoppingCart);
+
+    //calculateShippingCost(shoppingCart);
+    //applyQuantityDiscount(shoppingCart, product.id, 10);
+    //renderShoppingCartItems();
 }
 
 function removeFromShoppingCart(product) {
@@ -818,6 +955,28 @@ function getTotalOfItemsAndPrice(shoppingCart) {
 }
 const { totalQuantity, totalPrice } = getTotalOfItemsAndPrice(shoppingCart);
 
+function addToOrderSummarySubTotal(shoppingCart) {
+  let totalPrice = 0;
+
+  shoppingCart.forEach(cartItem => {    
+    totalPrice += cartItem.price * cartItem.quantity;
+  });
+
+  const orderSummarySubTotal = document.getElementById('SSubTotal');
+  orderSummarySubTotal.textContent = `${parseFloat(totalPrice).toFixed(2)}€`;
+
+  let shippingCost = calculateShippingCost(shoppingCart);
+  let mondayDiscount = applyMondayDiscount(totalPrice) ? applyMondayDiscount(totalPrice) : 0;
+
+  let grandTotalPrice = parseFloat(totalPrice += shippingCost -= mondayDiscount).toFixed(2);
+  console.log(`SubTotal: ${totalPrice}€\nShippingcost: ${shippingCost}€\nMonday Discount: -${mondayDiscount}€\nGrand Total: ${grandTotalPrice}€`);
+
+
+  // Skriv ut Grand Total.
+  const orderSummaryGrandTotal = document.getElementById('SGrandTotal');
+  orderSummaryGrandTotal.textContent = `${parseFloat(totalPrice).toFixed(2)}€`;
+}
+
 // If Scrolling it changes color on header
 let prevScrollPos = window.scrollY;
 const topbar = document.querySelector('.header');
@@ -844,19 +1003,25 @@ function applyMondayDiscount(orderTotal) {
   if (dayOfWeek === 1 && today.getHours() < 10) {
       console.log('Monday Discount: -10%');
       console.log(orderTotal);
-      return orderTotal * 0.9;
+      let orderTotalPrice = (orderTotal * 0.1);
+
+      const orderSummaryDiscount = document.getElementById('orderDiscount');
+      const discountText = document.createElement("p");
+      discountText.textContent = `Monday 10% Off: -${orderTotalPrice}€`;
+      orderSummaryDiscount.appendChild(discountText);
+
+      return orderTotalPrice;
   }
-  return orderTotal;
 }
 
 
-// Weekend Surcharge // Issue with time.
+// Weekend Surcharge // Issue with time. Without currentHour < 3 its working.
 function applyWeekendSurcharge(products) {
   const today = new Date();
   const dayOfWeek = today.getDay();
   const currentHour = today.getHours();
 
-  if ((dayOfWeek === 5 && currentHour >= 15) || dayOfWeek === 6 || (dayOfWeek === 0 && currentHour < 3) || dayOfWeek === 1) {
+  if ((dayOfWeek === 5 && currentHour >= 15) || dayOfWeek === 6 || (dayOfWeek === 1 && currentHour < 3) || dayOfWeek === 0) {
       const weekendSurcharge = 1.15;
 
       products.forEach((product) => {
@@ -869,31 +1034,43 @@ function applyWeekendSurcharge(products) {
 
 //const updatedProductPrice = applyWeekendSurcharge(productsArray);
 
-function applyQuantityDiscount(shoppingCart) {
-  shoppingCart.forEach(item => {
-      const originalPrice = item.originalPrice;
-      const quantity = item.quantity;
-  
-      if (quantity === 9) {
-        item.price = parseFloat((originalPrice * 0.9).toFixed(2));
-      } else if (quantity === 9 || quantity < 10) {
-        item.price = originalPrice;
-      }
-    });
-}
+// 10% discount if you buy more than 10 of the same donut.
+function applyQuantityDiscount(shoppingCart, itemId, discountPercentage) {
+  const itemToDiscount = shoppingCart.find(item => item.id === itemId);
 
-//const updatedProductPrice = applyBulkDiscount(productsArray, 10);
+  if (itemToDiscount) {
+      if (itemToDiscount.quantity > 9 && !itemToDiscount.discountApplied) {
+          const originalPrice = itemToDiscount.price;
+          const discountedPrice = originalPrice * (1 - discountPercentage / 100);
+          itemToDiscount.price = parseFloat(discountedPrice.toFixed(2));
+          itemToDiscount.discountApplied = true;
+          console.log(`Bulk discount of ${discountPercentage}% applied to item ${itemId}. New price: ${itemToDiscount.price}`);
+      } else if (itemToDiscount.quantity < 10 && itemToDiscount.discountApplied) {
+          itemToDiscount.price = itemToDiscount.originalPrice;
+          itemToDiscount.discountApplied = false;
+          console.log(`Bulk discount removed from item ${itemId}. Original price restored: ${itemToDiscount.price}`);
+      } else {
+          console.log(`No changes in discount applied to item ${itemId}.`);
+      }
+  } else {
+      console.log(`Item with ID ${itemId} not found in shopping cart.`);
+  }
+}
 
 //Shipping Cost
 function calculateShippingCost(shoppingCart) {
   const totalQuantity = shoppingCart.reduce((acc, item) => acc + item.quantity, 0);
 
   if (totalQuantity >= 15) {
-      return 0; // Free Shipping!
+    return 0; // Free Shipping!
   } else {
-      const totalPrice = shoppingCart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-      const shippingCost = (2.20 + (totalPrice * 0.1)).toFixed(2);
-      return shippingCost;
+    const totalPrice = shoppingCart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+    const shippingCost = (2.20 + (totalPrice * 0.1)).toFixed(2);
+    console.log('Shopping Cart Total Price: ' + totalPrice.toFixed(2));
+    console.log('Shipping Cost: ' + shippingCost);
+    const summaryShipping = document.getElementById('orderShipping');
+    summaryShipping.textContent = `Shippingcost: ${shippingCost}€`;
+    return shippingCost; // Parse the result to a float and return
   }
 }
 
@@ -908,8 +1085,6 @@ function clearOrderForm() {
 function startOrderTimer() {
   setTimeout(clearOrderForm, 15 * 60 * 1000);
 }
-
-startOrderTimer();
 
 
 const invoicePaymentOption = document.querySelector('.invoice-option-button');
@@ -934,62 +1109,47 @@ checkTotalAmountFormInvoice(totalAmount);
     // filterAndSortProducts('', 0, min-rating, 'rating-high-low');
     // filterAndSortProducts('', min-price, 0, 'rating-high-low');
 
-    //let productsFromArray = filterAndSortProducts('', 0, 0, '');
-    //const setPrice = applyWeekendSurcharge(productsFromArray);
+    const filterButton = document.getElementById('filterIcon');
+    filterButton.addEventListener('click', function() {
+      const filterView = document.getElementById('filterView');
+      filterView.classList.toggle('active');
+    });
 
-    // function increasePrice(products) {
-    //     const increasedPrice = product.price * 1.15;
-    //     return { ...products, price: increasedPrice },
-    //     console.log(products);  
-    // }
-    
-    //const applyWeekendSurchargePrice = increasePrice(products);
-    //const filterAndSortProducts = filterAndSortProducts('', 0, 0, '');
+const filterRatingCheckbox = document.getElementById('filterTopRated');
+const filterSortPrice = document.getElementById('filterSortOrderLH');
+const filterSortName = document.getElementById('filterSortOrderAZ');
 
-function filterAndSortProducts(category = '', minPrice = 0, minRating = 0, sortType = '') {
-  if (category === '' && minPrice <= 0 && minRating <= 0 && sortType === '') {
-      return [...productsArray];
+filterRatingCheckbox.addEventListener('change', applyFilters);
+filterSortPrice.addEventListener('change', applyFilters);
+filterSortName.addEventListener('change', applyFilters);
+
+function applyFilters() {
+  const isCheckedRating = filterRatingCheckbox.checked;
+  const sortPriceValue = filterSortPrice.value;
+  const sortNameValue = filterSortName.value;
+
+  if (isCheckedRating) {
+    console.log('isChecked: ', isCheckedRating);
+    renderProducts(filterAndSortProducts('', 0, 0, 'rating-high-low'));
+  } else {
+    renderProducts(filterAndSortProducts('', 0, 0, ''));
   }
 
-  let filteredProducts = [...productsArray];
-
-  if (category !== '') {
-      filteredProducts = filteredProducts.filter(product => product.category.toLowerCase().includes(category.toLowerCase()));
+  if (sortPriceValue === 'low-to-high') {
+    renderProducts(filterAndSortProducts('', 0, 0, 'price-low-high'));
+  } else if (sortPriceValue === 'high-to-low') {
+    renderProducts(filterAndSortProducts('', 0, 0, 'price-high-low'));
+  } else {
+    renderProducts(filterAndSortProducts('', 0, 0, ''));
   }
 
-  if (minPrice > 0) {
-      filteredProducts = filteredProducts.filter(product => product.price >= minPrice);
+  if (sortNameValue === 'a-to-z') {
+    renderProducts(filterAndSortProducts('', 0, 0, 'a-z'));
+  } else if (sortNameValue === 'z-to-a') {
+    renderProducts(filterAndSortProducts('', 0, 0, 'z-a'));
+  } else {
+    renderProducts(filterAndSortProducts('', 0, 0, ''));
   }
-
-  if (minRating > 0) {
-      filteredProducts = filteredProducts.filter(product => product.rating >= minRating);
-  }
-
-  switch (sortType.toLowerCase()) {
-      case 'a-z':
-          filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
-          break;
-      case 'z-a':
-          filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
-          break;
-      case 'category':
-          filteredProducts.sort((a, b) => a.category.localeCompare(b.category));
-          break;
-      case 'price-low-high':
-          filteredProducts.sort((a, b) => a.price - b.price);
-          break;
-      case 'price-high-low':
-          filteredProducts.sort((a, b) => b.price - a.price);
-          break;
-      case 'rating-high-low':
-          filteredProducts.sort((a, b) => b.rating - a.rating);
-          break;
-      default:
-          // Do nothing.
-          break;
-  }
-
-  return filteredProducts;
 }
 
 }); // DOM
