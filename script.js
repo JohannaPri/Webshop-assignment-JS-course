@@ -1,3 +1,4 @@
+//Array with objects (donuts and information)
 const productsArray = [
     {
         id: 1, 
@@ -117,14 +118,16 @@ let productsFromArray = [];
 document.addEventListener('DOMContentLoaded', function() {
     //DarkMode 
     const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark').matches;
-
+    
+    //Filter
     function filterAndSortProducts(category = '', minPrice = 0, minRating = 0, sortType = '') {
       if (category === '' && minPrice <= 0 && minRating <= 0 && sortType === '') {
           return [...productsArray];
       }
-    
+      //Copies the original array to filterproducts
       let filteredProducts = [...productsArray];
-    
+
+      //Not using category 
       if (category !== '') {
           filteredProducts = filteredProducts.filter(product => product.category.toLowerCase().includes(category.toLowerCase()));
       }
@@ -157,13 +160,13 @@ document.addEventListener('DOMContentLoaded', function() {
               filteredProducts.sort((a, b) => b.rating - a.rating);
               break;
           default:
-              // Do nothing.
+              //Do nothing.
               break;
       }
     
       return filteredProducts;
     }
-
+    //When window onload (are loaded)
     window.onload = function() {
       let productsFromArray = [...productsArray];
       fetchAndUpdateProduct(productsFromArray);
@@ -174,6 +177,7 @@ document.addEventListener('DOMContentLoaded', function() {
       renderProducts(applyWeekendSurcharge(products));
     }
     
+    //InnerHTML including the header and menu
 document.querySelector('#header').innerHTML = `
 <div class="content">
   <header>
@@ -212,6 +216,7 @@ document.querySelector('#header').innerHTML = `
 </div>
 `;
 
+//InnerHTML - checkout with all sections 
 document.querySelector("#checkOut").innerHTML = `
 <div class="check-out-form">
             <form id="checkOutForm">
@@ -337,6 +342,7 @@ document.querySelector("#checkOut").innerHTML = `
           </div>
 `;
 
+//Filter innerHTML 
 document.querySelector("#filterDiv").innerHTML = `
 <div class="filter-view" id="filterView">
     <h2>Filter Options</h2>
@@ -346,12 +352,12 @@ document.querySelector("#filterDiv").innerHTML = `
             <p>Top Rated</p>
         </label>
         <select id="filterSortOrderLH">
-            <option value="">No Filter</option>
+            <option value="">Sort by price</option>
             <option value="low-to-high">Low to High Price</option>
             <option value="high-to-low">High to Low Price</option>
         </select>
         <select id="filterSortOrderAZ">
-            <option value="">No Filter</option>
+            <option value="">Sort by name</option>
             <option value="a-to-z">A to Z Name</option>
             <option value="z-to-a">Z to A Name</option>
         </select>
@@ -359,6 +365,7 @@ document.querySelector("#filterDiv").innerHTML = `
 </div>
 `;
 
+//Button (icon) to get to shoppingcart
 const shoppingCartButton = document.querySelector('#cartIcon');
 shoppingCartButton.addEventListener('click', function() {
     const shoppingCart = document.querySelector('.shopping-cart');
@@ -371,6 +378,7 @@ shoppingCartButton.addEventListener('click', function() {
 
 const menu = document.querySelector('.hamburger-menu');
 
+//Card and invoice
 function togglePayment(option) {
   const cardDetails = document.querySelector(".card-details");
   const invoiceDetails = document.querySelector(".invoice-details");
@@ -383,7 +391,7 @@ function togglePayment(option) {
     invoiceDetails.style.display = "block";
   }
 }
-
+//Buttons in checkout section
 const form = document.getElementById("checkOutForm");
 const sections = document.querySelectorAll(".checkout-section");
 const nextButtons = document.querySelectorAll('[id^="checkOutNext"]');
@@ -417,15 +425,27 @@ function navigateToPrevious() {
   }
 }
 
+//Confirmations when clicking reset all. Choose between cancel or OK
+function handleConfirmation() {
+  const confirmation = confirm("Press OK to start over completely. Press CANCEL to only clear the form (your shopping cart will not be emptied).");
+
+  if (confirmation) {
+    location.reload();
+  } else {
+    form.reset();
+    currentSection = 0;
+    showSection(currentSection);
+  }
+}
+
 function resetForm() {
-  form.reset();
-  currentSection = 0;
-  showSection(currentSection);
+  handleConfirmation();
 }
 
 nextButton1.addEventListener("click", function (event) {
   event.preventDefault();
 
+  //Customer information
   const firstName = document.getElementById("firstName").value.trim();
   const lastName = document.getElementById("lastName").value.trim();
   const email = document.getElementById("email").value.trim();
@@ -434,6 +454,7 @@ nextButton1.addEventListener("click", function (event) {
   const zipCode = document.getElementById("zipCode").value.trim();
   const city = document.getElementById("city").value.trim();
 
+  //Error messages 
   let errorMessages = [];
 
   if (firstName === "") {
@@ -478,6 +499,7 @@ nextButton1.addEventListener("click", function (event) {
   }
 });
 
+//Card and Invoice validation 
 nextButton2.addEventListener("click", function (event) {
   event.preventDefault();
 
@@ -508,20 +530,22 @@ function collectFormData() {
     console.log(key + ": " + value);
   }
 }
-
+//Place Order Button - the last step
 const placeOrderButton = document.getElementById('placeOrder');
 placeOrderButton.addEventListener('click', function(event) {
 event.preventDefault();
 personalDataCheckboxChecker();
 });
 
+//Checking if personal data is checked or not
 function personalDataCheckboxChecker() {
   const personalDataCheckbox = document.getElementById('personalDataAccept');
   const isPersonalDataChecked = personalDataCheckbox.checked;
 
+  //When clicking on place order
   if (isPersonalDataChecked) {
     collectFormData();
-    alert('Thank you for your order!\n\nWe will deliver your donuts to your address in 2 days.');
+    alert('Thank you for your order!\n\nWe will deliver your donuts to your address within 2 workingdays!\n\nHave a nice day!');
   } else {
     alert('You need to accept our terms of conditions.');
     return;
@@ -531,6 +555,7 @@ function personalDataCheckboxChecker() {
 
 showSection(currentSection);
 
+//Choose between card or invoice
 const cardOptionButton = document.querySelector(".card-option-button");
 const invoiceOptionButton = document.querySelector(".invoice-option-button");
 
@@ -561,7 +586,7 @@ menu.addEventListener('click', function() {
     console.log('Toggle Menu!');
     toggleMenu(); 
 });
-
+//Order summary 
 function addItemToOrderSummary(cartItem) {
   const orderSummaryTable = document.getElementById('orderSummaryTableItems');
 
@@ -582,7 +607,7 @@ function addItemToOrderSummary(cartItem) {
 
   orderSummaryTable.appendChild(newRow);
 }
-
+//Shopping cart icon and inside of shoppingcart
 function generateShoppingCartItem(cartItem) {
     const shoppingCartItem = document.createElement('div');
     shoppingCartItem.classList.add('shopping-cart-item');
@@ -594,7 +619,7 @@ function generateShoppingCartItem(cartItem) {
                       prefersDarkMode
                         ? "assets/icons/close-icon_white.svg"
                         : "assets/icons/close-icon_dark.svg"
-                    } width="24" height="24" alt="Icon to remove donut" aria-label="Button to remove donut from shopping cart">
+                    } width="24" height="24" alt="Icon to remove donut" width="24" height="24" aria-label="Button to remove donut from shopping cart">
                 </button>
         </div>
         <div class="shopping-cart-item-img">
@@ -625,6 +650,7 @@ function generateShoppingCartItem(cartItem) {
     return shoppingCartItem;
 }
 
+//ShoppingCart - Renders items in shoppingcart
 function renderShoppingCartItems() {
     const shoppingCartItemsContainer = document.getElementById('shoppingCartItems');
     shoppingCartItemsContainer.innerHTML = '';
@@ -682,6 +708,8 @@ function renderShoppingCartItems() {
     checkOutBtn.addEventListener('click', function() {
         console.log('Checkout button');
         startOrderTimer();
+        const totalAmount = shoppingCart.reduce((total, cartItem) => total + (cartItem.quantity * cartItem.price), 0);
+        checkTotalAmountFormInvoice(totalAmount);
         const checkOutView = document.querySelector(".check-out");
         const shoppingCartDiv = document.querySelector('.shopping-cart');
         checkOutView.classList.toggle("active");
@@ -788,7 +816,7 @@ function renderProducts(products) {
     //Append all li to the main ul (show on screen)
     productItemsUL.appendChild(li);
 
-    // Buttons for adding and removing the choosen item to/from shoppingcart array.
+    //Buttons for adding and removing the choosen item to/from shoppingcart array.
     btnPlus.addEventListener("click", function () {
       addToShoppingCart(product);
     });
@@ -809,6 +837,7 @@ function generateStarRating(value) {
     return fullStars + emptyStars;
 }
 
+//Animation for shoppingcart icon and total amount in header
 function addToShoppingCart(product) {
     console.log('Product added to Shoppingcart: ', product);
 
@@ -826,6 +855,7 @@ function addToShoppingCart(product) {
         priceAmount.classList.remove('priceAmountZoomIn');
     });
 
+    //Total amount (price)
     const totalPricePerItem = addToTotalPricePerItem(shoppingCart, product.id, product.price);
     console.log(`${product.name} added to cart!`);
 
@@ -847,6 +877,7 @@ function addToShoppingCart(product) {
     //renderShoppingCartItems();
 }
 
+//Remove item from shoppingcart
 function removeFromShoppingCart(product) {
     console.log('Product removed from Shoppingcart: ', product);
 
@@ -955,6 +986,7 @@ function getTotalOfItemsAndPrice(shoppingCart) {
 }
 const { totalQuantity, totalPrice } = getTotalOfItemsAndPrice(shoppingCart);
 
+//Summary subtotal, discount, shipping and grandtotal
 function addToOrderSummarySubTotal(shoppingCart) {
   let totalPrice = 0;
 
@@ -972,12 +1004,12 @@ function addToOrderSummarySubTotal(shoppingCart) {
   console.log(`SubTotal: ${totalPrice}€\nShippingcost: ${shippingCost}€\nMonday Discount: -${mondayDiscount}€\nGrand Total: ${grandTotalPrice}€`);
 
 
-  // Skriv ut Grand Total.
+  //show the Grand Total.
   const orderSummaryGrandTotal = document.getElementById('SGrandTotal');
   orderSummaryGrandTotal.textContent = `${parseFloat(totalPrice).toFixed(2)}€`;
 }
 
-// If Scrolling it changes color on header
+//If Scrolling it changes color on header
 let prevScrollPos = window.scrollY;
 const topbar = document.querySelector('.header');
 
@@ -993,9 +1025,9 @@ window.addEventListener('scroll', function() {
   prevScrollPos = currentScrollPos;
 });
 
-// Specialregler och filter
+//Special rules
 
-// Monday Discount // ON checkout.
+//Monday Discount // ON checkout.
 function applyMondayDiscount(orderTotal) {
   const today = new Date();
   const dayOfWeek = today.getDay();
@@ -1014,8 +1046,7 @@ function applyMondayDiscount(orderTotal) {
   }
 }
 
-
-// Weekend Surcharge // Issue with time. Without currentHour < 3 its working.
+//Weekend Surcharge // Issue with time. Without currentHour < 3 its working.
 function applyWeekendSurcharge(products) {
   const today = new Date();
   const dayOfWeek = today.getDay();
@@ -1034,7 +1065,7 @@ function applyWeekendSurcharge(products) {
 
 //const updatedProductPrice = applyWeekendSurcharge(productsArray);
 
-// 10% discount if you buy more than 10 of the same donut.
+//10% discount if you buy more than 10 of the same donut.
 function applyQuantityDiscount(shoppingCart, itemId, discountPercentage) {
   const itemToDiscount = shoppingCart.find(item => item.id === itemId);
 
@@ -1073,7 +1104,7 @@ function calculateShippingCost(shoppingCart) {
     return shippingCost; // Parse the result to a float and return
   }
 }
-
+//The webshop will reload if their is not a placed order within 15 minutes
 const orderForm = document.getElementById('checkOutForm');
 
 function clearOrderForm() {
@@ -1086,7 +1117,7 @@ function startOrderTimer() {
   setTimeout(clearOrderForm, 15 * 60 * 1000);
 }
 
-
+//If amount is over 80€ you can not choose to pay with invoice
 const invoicePaymentOption = document.querySelector('.invoice-option-button');
 
 function checkTotalAmountFormInvoice(totalAmount) {
@@ -1097,10 +1128,11 @@ function checkTotalAmountFormInvoice(totalAmount) {
   }
 }
 
-const totalAmount = 80;
-checkTotalAmountFormInvoice(totalAmount);
+//const totalAmount = 81;
 
-// filterAndSortProducts('', 0, 0, ''); // Original Array
+//Filters - Rating, high to low price, low to high price and a to z and z to a
+
+//FilterAndSortProducts('', 0, 0, ''); // Original Array
     // filterAndSortProducts('', 0, 0, 'a-z / z-a');
     // filterAndSortProducts('', 0, 0, 'category');
     // filterAndSortProducts('categoryName', 0, 0, '');
@@ -1128,28 +1160,21 @@ function applyFilters() {
   const sortPriceValue = filterSortPrice.value;
   const sortNameValue = filterSortName.value;
 
-  if (isCheckedRating) {
-    console.log('isChecked: ', isCheckedRating);
-    renderProducts(filterAndSortProducts('', 0, 0, 'rating-high-low'));
-  } else {
-    renderProducts(filterAndSortProducts('', 0, 0, ''));
-  }
-
   if (sortPriceValue === 'low-to-high') {
     renderProducts(filterAndSortProducts('', 0, 0, 'price-low-high'));
   } else if (sortPriceValue === 'high-to-low') {
     renderProducts(filterAndSortProducts('', 0, 0, 'price-high-low'));
   } else {
-    renderProducts(filterAndSortProducts('', 0, 0, ''));
-  }
-
-  if (sortNameValue === 'a-to-z') {
-    renderProducts(filterAndSortProducts('', 0, 0, 'a-z'));
-  } else if (sortNameValue === 'z-to-a') {
-    renderProducts(filterAndSortProducts('', 0, 0, 'z-a'));
-  } else {
-    renderProducts(filterAndSortProducts('', 0, 0, ''));
+    if (isCheckedRating) {
+      renderProducts(filterAndSortProducts('', 0, 0, 'rating-high-low'));
+    } else if (sortNameValue === 'a-to-z') {
+      renderProducts(filterAndSortProducts('', 0, 0, 'a-z'));
+    } else if (sortNameValue === 'z-to-a') {
+      renderProducts(filterAndSortProducts('', 0, 0, 'z-a'));
+    } else {
+      renderProducts(filterAndSortProducts('', 0, 0, ''));
+    }
   }
 }
 
-}); // DOM
+}); //DOM

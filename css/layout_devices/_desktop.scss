@@ -1,8 +1,34 @@
-#checkOutForm {
-    display: flex;
-    flex-wrap: wrap;
+/* GRID */
+
+.product-items {
+    grid-template-columns: repeat(4, 1fr); /* Four columns */
+  }
+
+/* CHECKOUT CONTENT */
+
+  .checkout-section {
+    width: 600px;
+    margin: 0 auto;
 }
 
-label, input {
-    flex: 1 1 calc(50% - 20px);
+#checkOutForm {
+  background-color: #FAD7F6 !important
 }
+
+.checkout-information {
+    width: 100%;
+    left: 0%;
+}
+
+.discount-code {
+    display: inline-flex;
+    flex-direction: column;
+    position: absolute;
+    left: 15%;
+    bottom: 40%;
+    width: 350px;
+    padding: 20px;
+}
+
+
+
