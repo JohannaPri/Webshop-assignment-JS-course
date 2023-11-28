@@ -1,5 +1,9 @@
 # Webshop - Donut Factory (Assignment in JavaScript-basic course)
 
+#### Link to webshop 
+
+https://medieinstitutet.github.io/fed23d-js-grundkurs-webshop-JohannaPri/
+
 #### This webshop is made as an assignment in the JavaScript-basic course.
 Webbshoppen är inte aktiv och fungerar inte att beställa från. The webshop is not active and can't be ordered from.
 
