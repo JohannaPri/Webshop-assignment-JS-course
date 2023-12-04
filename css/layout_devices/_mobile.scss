@@ -223,6 +223,7 @@ button {
 }
 
 .hamburger-menu .bar {
+    display: block;
     width: 25px;
     height: 3px;
     background-color: #333;
@@ -361,7 +362,7 @@ button {
     border-color: white;
   }
 
-  .filters p {
+  .filters span {
     font-weight: bold;
   }
 
@@ -707,6 +708,15 @@ button {
     font-size: smaller;
     font-weight: bold;
     margin-bottom: 4px;
+    border: 0;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 0;
 }
 
 .order-summary-table-items {
@@ -790,7 +800,7 @@ button {
 }
 
 
-.personaldata-container, .newsletter-container p {
+.personaldata-container, .newsletter-container span {
     font-size: smaller;
 }
 

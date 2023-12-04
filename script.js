@@ -179,28 +179,27 @@ document.addEventListener('DOMContentLoaded', function() {
     
     //InnerHTML including the header and menu
 document.querySelector('#header').innerHTML = `
+<main class="main" id="main">
 <div class="content">
   <header>
     <div class="header">
       <div class="header-inner">
         <button class="hamburger-menu" aria-label="open menu">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
         </button>
         <div class="menu-logo">Donut Factory</div>
         <div class="cart-total">
           <span class="amount" id="menuCartAmount">0.00€</span>
           <button class="cart-icon" id="cartIcon" aria-label="Shopping Cart Button">
             <img class="icon-svg" src="assets/icons/shopping-cart_dark.svg" width="27" height="27" alt="Icon for shopping cart">
-            <div class="cart-count" id="menuCartCount">0</div>
+            <span class="cart-count" id="menuCartCount">0</span>
           </button>
         </div>
       </div>
     </div>
-    <main class="main" id="main">
-      <ul class="product-items" id="product-items"></ul>
-    </main>
+      <ul class="product-items" id="productItems"></ul>
   </header>
   <button class="filter-icon" id="filterIcon" aria-label="Filter button">
   <img class="filter-icon-svg" src="assets/icons/filter-list.svg" width="35" height="35" alt="Icon to filter the donuts">
@@ -214,6 +213,7 @@ document.querySelector('#header').innerHTML = `
   </ul>
   </nav>
 </div>
+</main>
 `;
 
 //InnerHTML - checkout with all sections 
@@ -226,25 +226,25 @@ document.querySelector("#checkOut").innerHTML = `
                   <label for="firstName">First Name:</label>
                   <input type="text" id="firstName" name="firstName" required>
 
-                  <label for="lastname">Last Name:</label>
+                  <label for="lastName">Last Name:</label>
                   <input type="text" id="lastName" name="lastname" required>
 
                   <label for="email">Email:</label>
                   <input type="email" id="email" name="email" required>
 
-                  <label for="phonenumber">Phone Number:</label>
+                  <label for="phoneNumber">Phone Number:</label>
                   <input type="tel" id="phoneNumber" name="phonenumber" required>
 
                   <label for="address">Address:</label>
                   <input type="text" id="address" name="address" required>
 
-                  <label for="zipcode">Zip Code:</label>
+                  <label for="zipCode">Zip Code:</label>
                   <input type="text" id="zipCode" name="zipcode" required>
                   
                   <label for="city">City:</label>
                   <input type="text" id="city" name="city" required>
                   
-                  <label for="pincode">Pin Code:</label>
+                  <label for="pinCode">Pin Code:</label>
                   <input type="text" id="pinCode" name="pincode">
 
                   <div class="button-container">
@@ -292,7 +292,7 @@ document.querySelector("#checkOut").innerHTML = `
               <div class="checkout-section" id="section3">
                   <h2>Order Details</h2>
 
-                  <table class="checkout-information" border="0" cellspacing="0" cellpadding="0">
+                  <table class="checkout-information">
                     <thead>
                       <tr>
                         <th>Name</th>
@@ -319,15 +319,15 @@ document.querySelector("#checkOut").innerHTML = `
                   </div>
                   <div class="checkbox-containers" id="personalDataProcessing">
                     <div class="personaldata-container">
-                      <label for="personalDataProcessing">
+                      <label for="personalDataAccept">
                         <input type="checkbox" id="personalDataAccept" name="personalDataProcessing" aria-label=" accept personal data processing" >
-                        <p>I agree with the conditions</p>
+                        <span>I agree with the conditions</span>
                       </label>
                     </div>
                     <div class="newsletter-container" id="newsLetterSubscription">
-                    <label for="newsLetterSubscription">
-                      <input type="checkbox" aria-label="checkbox to subscribe on newsletter" name="newsLetterSubscription" checked>
-                      <p>Subscribe to Our Newsletter</p>
+                    <label for="newsLetter">
+                      <input type="checkbox" id="newsLetter" aria-label="checkbox to subscribe on newsletter" name="newsLetterSubscription" checked>
+                      <span>Subscribe to Our Newsletter</span>
                     </label>
                   </div>
                 </div>
@@ -349,7 +349,7 @@ document.querySelector("#filterDiv").innerHTML = `
     <div class="filters">
         <label>
             <input type="checkbox" id="filterTopRated" aria-label="check-box to filter the donuts">
-            <p>Top Rated</p>
+            <span>Top Rated</span>
         </label>
         <select id="filterSortOrderLH">
             <option value="">Sort by price</option>
@@ -723,14 +723,14 @@ function renderShoppingCartItems() {
 }
 
 function renderProducts(products) {
-  const productItemsUL = document.querySelector("#product-items");
+  const productItemsUL = document.querySelector("#productItems");
   productItemsUL.innerHTML = "";
 
 
   products.forEach((product) => {
     const li = document.createElement("li");
-    li.classList.add("donut-item");
-    li.id = "donut-item";
+    li.classList.add('donut-item');
+    li.id = `donut-item-${product.id}`;
 
     //itemImage
     const itemImage = document.createElement("div");
