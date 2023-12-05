@@ -1,184 +1,197 @@
 //Array with objects (donuts and information)
 const productsArray = [
-    {
-        id: 1, 
-        name: 'Bright & Delicious', 
-        price: 3.55, 
-        originalPrice: 3.55,
-        category: 'Vegan', 
-        rating: 4, 
-        imageURL: 'assets/compressed_photos/bright-and-delicious-min.png',
-        description: 'A delicious donut with orange glaze and sprinkles',
-        quantity: 0,
-    },
-    {
-        id: 2, 
-        name: 'Bloody Strawberry', 
-        price: 2.75, 
-        originalPrice: 2.75,
-        category: 'Fruit', 
-        rating: 3, 
-        imageURL: 'assets/compressed_photos/bloody-strawberry-min.png',
-        description: 'A donut with a bright red strawberry cream coating',
-        quantity: 0,
-    },
-    {
-        id: 3, 
-        name: 'Hazelnut & Chocolate Amazing', 
-        price: 4.85, 
-        originalPrice: 4.85,
-        category: 'Chocolate', 
-        rating: 5, 
-        imageURL: 'assets/compressed_photos/cobnut-chocolate-and-amazing-min.png',
-        description: 'A donut with a chocolate cover with finely chopped hazelnut',
-        quantity: 0,
-    },
-    {
-        id: 4, 
-        name: 'Crispy Chocolate', 
-        price: 3.25, 
-        originalPrice: 3.25,
-        category: 'Chocolate', 
-        rating: 3., 
-        imageURL: 'assets/compressed_photos/crispy-chocolate-min.png',
-        description: 'A donut dipped in chocolate with crunchy sprinkles',
-        quantity: 0,
-    },
-    {
-        id: 5, 
-        name: 'Extra Extra Caramel', 
-        price: 4.25, 
-        originalPrice: 4.25,
-        category: 'Caramel', 
-        rating: 5, 
-        imageURL: 'assets/compressed_photos/extra-extra-caramel-min.png',
-        description: 'A donut with wonderful caramel drizzle and fantastic crunch',
-        quantity: 0,
-    },
-    {
-        id: 6, 
-        name: 'Les Is More Chocolate', 
-        price: 3.45, 
-        originalPrice: 3.45,
-        category: 'Chocolate', 
-        rating: 3, 
-        imageURL: 'assets/compressed_photos/les-is-more-chocolate-min.png',
-        description: 'A chocolate dipped donut with crushed chocolate on top',
-        quantity: 0,
-    },
-    {
-        id: 7, 
-        name: 'Pink & Still Going Strong', 
-        price: 2.65, 
-        originalPrice: 2.65,
-        category: 'Vegan', 
-        rating: 3, 
-        imageURL: 'assets/compressed_photos/pink-still-going-strong-min.png',
-        description: 'A bright pink donut with colorful sprinkles on top',
-        quantity: 0,
-    },
-    {
-        id: 8, 
-        name: 'Plane But Fabolous', 
-        price: 2.85, 
-        originalPrice: 2.85,
-        category: 'Plane',
-        rating: 2, 
-        imageURL: 'assets/compressed_photos/plane-but-fabolous-min.png',
-        description: 'A plain donut with a little bit of green and white glaze',
-        quantity: 0,
-    },
-    {
-        id: 9, 
-        name: 'Red Velvet A Match In Heaven', 
-        price: 4.85, 
-        originalPrice: 4.85,
-        category: 'Red Velvet', 
-        rating: 5, 
-        imageURL: 'assets/compressed_photos/red-velvet-match-in-heaven-min.png',
-        description: 'An extraordinary red velvet donut with a magical raspberry glaze and crunch',
-        quantity: 0,
-    },
-    {
-        id: 10, 
-        name: 'Sprinkles All The Way', 
-        price: 3.45, 
-        originalPrice: 3.45,
-        category: 'Sprinkles', 
-        rating: 4,
-        imageURL: 'assets/compressed_photos/sprinkles-all-the-way-min.png',
-        description: 'A donut with chocolate cover and orange glaze with sprinkles',
-        quantity: 0,
-    },
+  {
+    id: 1,
+    name: "Bright & Delicious",
+    price: 3.55,
+    originalPrice: 3.55,
+    category: "Vegan",
+    rating: 4,
+    imageURL: "assets/compressed_photos/bright-and-delicious-min.png",
+    description: "A delicious donut with orange glaze and sprinkles",
+    quantity: 0,
+  },
+  {
+    id: 2,
+    name: "Bloody Strawberry",
+    price: 2.75,
+    originalPrice: 2.75,
+    category: "Fruit",
+    rating: 3,
+    imageURL: "assets/compressed_photos/bloody-strawberry-min.png",
+    description: "A donut with a bright red strawberry cream coating",
+    quantity: 0,
+  },
+  {
+    id: 3,
+    name: "Hazelnut & Chocolate Amazing",
+    price: 4.85,
+    originalPrice: 4.85,
+    category: "Chocolate",
+    rating: 5,
+    imageURL: "assets/compressed_photos/cobnut-chocolate-and-amazing-min.png",
+    description: "A donut with a chocolate cover with finely chopped hazelnut",
+    quantity: 0,
+  },
+  {
+    id: 4,
+    name: "Crispy Chocolate",
+    price: 3.25,
+    originalPrice: 3.25,
+    category: "Chocolate",
+    rating: 3,
+    imageURL: "assets/compressed_photos/crispy-chocolate-min.png",
+    description: "A donut dipped in chocolate with crunchy sprinkles",
+    quantity: 0,
+  },
+  {
+    id: 5,
+    name: "Extra Extra Caramel",
+    price: 4.25,
+    originalPrice: 4.25,
+    category: "Caramel",
+    rating: 5,
+    imageURL: "assets/compressed_photos/extra-extra-caramel-min.png",
+    description: "A donut with wonderful caramel drizzle and fantastic crunch",
+    quantity: 0,
+  },
+  {
+    id: 6,
+    name: "Les Is More Chocolate",
+    price: 3.45,
+    originalPrice: 3.45,
+    category: "Chocolate",
+    rating: 3,
+    imageURL: "assets/compressed_photos/les-is-more-chocolate-min.png",
+    description: "A chocolate dipped donut with crushed chocolate on top",
+    quantity: 0,
+  },
+  {
+    id: 7,
+    name: "Pink & Still Going Strong",
+    price: 2.65,
+    originalPrice: 2.65,
+    category: "Vegan",
+    rating: 3,
+    imageURL: "assets/compressed_photos/pink-still-going-strong-min.png",
+    description: "A bright pink donut with colorful sprinkles on top",
+    quantity: 0,
+  },
+  {
+    id: 8,
+    name: "Plane But Fabolous",
+    price: 2.85,
+    originalPrice: 2.85,
+    category: "Plane",
+    rating: 2,
+    imageURL: "assets/compressed_photos/plane-but-fabolous-min.png",
+    description: "A plain donut with a little bit of green and white glaze",
+    quantity: 0,
+  },
+  {
+    id: 9,
+    name: "Red Velvet A Match In Heaven",
+    price: 4.85,
+    originalPrice: 4.85,
+    category: "Red Velvet",
+    rating: 5,
+    imageURL: "assets/compressed_photos/red-velvet-match-in-heaven-min.png",
+    description:
+      "An extraordinary red velvet donut with a magical raspberry glaze and crunch",
+    quantity: 0,
+  },
+  {
+    id: 10,
+    name: "Sprinkles All The Way",
+    price: 3.45,
+    originalPrice: 3.45,
+    category: "Sprinkles",
+    rating: 4,
+    imageURL: "assets/compressed_photos/sprinkles-all-the-way-min.png",
+    description: "A donut with chocolate cover and orange glaze with sprinkles",
+    quantity: 0,
+  },
 ];
 
 let shoppingCart = [];
 let productsFromArray = [];
 
-document.addEventListener('DOMContentLoaded', function() {
-    //DarkMode 
-    const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark').matches;
-    
-    //Filter
-    function filterAndSortProducts(category = '', minPrice = 0, minRating = 0, sortType = '') {
-      if (category === '' && minPrice <= 0 && minRating <= 0 && sortType === '') {
-          return [...productsArray];
-      }
-      //Copies the original array to filterproducts
-      let filteredProducts = [...productsArray];
+//DarkMode
+const prefersDarkMode =
+  window.matchMedia && window.matchMedia("(prefers-color-scheme: dark").matches;
 
-      //Not using category 
-      if (category !== '') {
-          filteredProducts = filteredProducts.filter(product => product.category.toLowerCase().includes(category.toLowerCase()));
-      }
-    
-      if (minPrice > 0) {
-          filteredProducts = filteredProducts.filter(product => product.price >= minPrice);
-      }
-    
-      if (minRating > 0) {
-          filteredProducts = filteredProducts.filter(product => product.rating >= minRating);
-      }
-    
-      switch (sortType.toLowerCase()) {
-          case 'a-z':
-              filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
-              break;
-          case 'z-a':
-              filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
-              break;
-          case 'category':
-              filteredProducts.sort((a, b) => a.category.localeCompare(b.category));
-              break;
-          case 'price-low-high':
-              filteredProducts.sort((a, b) => a.price - b.price);
-              break;
-          case 'price-high-low':
-              filteredProducts.sort((a, b) => b.price - a.price);
-              break;
-          case 'rating-high-low':
-              filteredProducts.sort((a, b) => b.rating - a.rating);
-              break;
-          default:
-              //Do nothing.
-              break;
-      }
-    
-      return filteredProducts;
-    }
-    //When window onload (are loaded)
-    window.onload = function() {
-      let productsFromArray = [...productsArray];
-      fetchAndUpdateProduct(productsFromArray);
+//Filter
+function filterAndSortProducts(
+  category = "",
+  minPrice = 0,
+  minRating = 0,
+  sortType = ""
+) {
+  if (category === "" && minPrice <= 0 && minRating <= 0 && sortType === "") {
+    return [...productsArray];
+  }
+  //Copies the original array to filterproducts
+  let filteredProducts = [...productsArray];
+
+  //Not using category
+  if (category !== "") {
+    filteredProducts = filteredProducts.filter((product) =>
+      product.category.toLowerCase().includes(category.toLowerCase())
+    );
   }
 
-    function fetchAndUpdateProduct(products) {
-      //applyQuantityDiscount(products);
-      renderProducts(applyWeekendSurcharge(products));
-    }
-    
-    //InnerHTML including the header and menu
-document.querySelector('#header').innerHTML = `
+  if (minPrice > 0) {
+    filteredProducts = filteredProducts.filter(
+      (product) => product.price >= minPrice
+    );
+  }
+
+  if (minRating > 0) {
+    filteredProducts = filteredProducts.filter(
+      (product) => product.rating >= minRating
+    );
+  }
+
+  switch (sortType.toLowerCase()) {
+    case "a-z":
+      filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+      break;
+    case "z-a":
+      filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
+      break;
+    case "category":
+      filteredProducts.sort((a, b) => a.category.localeCompare(b.category));
+      break;
+    case "price-low-high":
+      filteredProducts.sort((a, b) => a.price - b.price);
+      break;
+    case "price-high-low":
+      filteredProducts.sort((a, b) => b.price - a.price);
+      break;
+    case "rating-high-low":
+      filteredProducts.sort((a, b) => b.rating - a.rating);
+      break;
+    default:
+      //Do nothing.
+      break;
+  }
+
+  return filteredProducts;
+}
+//When window onload (are loaded)
+window.onload = function () {
+  let productsFromArray = [...productsArray];
+  fetchAndUpdateProduct(productsFromArray);
+};
+
+function fetchAndUpdateProduct(products) {
+  //applyQuantityDiscount(products);
+  renderProducts(applyWeekendSurcharge(products));
+}
+//Trying different kind of methods to include HTML in JS.
+//Thats why you can see that I have been using innerHTML, createElement and the HTML-file.
+//InnerHTML including the header and menu.
+document.querySelector("#header").innerHTML = `
 <main class="main" id="main">
 <div class="content">
   <header>
@@ -216,7 +229,7 @@ document.querySelector('#header').innerHTML = `
 </main>
 `;
 
-//InnerHTML - checkout with all sections 
+//InnerHTML - checkout with all sections
 document.querySelector("#checkOut").innerHTML = `
 <div class="check-out-form">
             <form id="checkOutForm">
@@ -342,7 +355,7 @@ document.querySelector("#checkOut").innerHTML = `
           </div>
 `;
 
-//Filter innerHTML 
+//Filter innerHTML
 document.querySelector("#filterDiv").innerHTML = `
 <div class="filter-view" id="filterView">
     <h2>Filter Options</h2>
@@ -366,17 +379,19 @@ document.querySelector("#filterDiv").innerHTML = `
 `;
 
 //Button (icon) to get to shoppingcart
-const shoppingCartButton = document.querySelector('#cartIcon');
-shoppingCartButton.addEventListener('click', function() {
-    const shoppingCart = document.querySelector('.shopping-cart');
-    const checkOutView = document.querySelector(".check-out");
-    shoppingCart.classList.toggle('active');
-    checkOutView.classList.remove("active");
-    shoppingCart.classList.contains('active') ? document.body.classList.add('no-scroll') : document.body.classList.remove('no-scroll');
-    renderShoppingCartItems();
+const shoppingCartButton = document.querySelector("#cartIcon");
+shoppingCartButton.addEventListener("click", function () {
+  const shoppingCart = document.querySelector(".shopping-cart");
+  const checkOutView = document.querySelector(".check-out");
+  shoppingCart.classList.toggle("active");
+  checkOutView.classList.remove("active");
+  shoppingCart.classList.contains("active")
+    ? document.body.classList.add("no-scroll")
+    : document.body.classList.remove("no-scroll");
+  renderShoppingCartItems();
 });
 
-const menu = document.querySelector('.hamburger-menu');
+const menu = document.querySelector(".hamburger-menu");
 
 //Card and invoice
 function togglePayment(option) {
@@ -427,7 +442,9 @@ function navigateToPrevious() {
 
 //Confirmations when clicking reset all. Choose between cancel or OK
 function handleConfirmation() {
-  const confirmation = confirm("Press OK to start over completely. Press CANCEL to only clear the form (your shopping cart will not be emptied).");
+  const confirmation = confirm(
+    "Press OK to start over completely. Press CANCEL to only clear the form (your shopping cart will not be emptied)."
+  );
 
   if (confirmation) {
     location.reload();
@@ -454,7 +471,7 @@ nextButton1.addEventListener("click", function (event) {
   const zipCode = document.getElementById("zipCode").value.trim();
   const city = document.getElementById("city").value.trim();
 
-  //Error messages 
+  //Error messages
   let errorMessages = [];
 
   if (firstName === "") {
@@ -488,18 +505,17 @@ nextButton1.addEventListener("click", function (event) {
 
   const errorContainer = document.getElementById("errorMessages");
   if (errorMessages.length > 0) {
-    
-    //Not using! 
-    //errorContainer.innerHTML = 
+    //Not using!
+    //errorContainer.innerHTML =
     //"<ul>" + errorMessages.map((msg) => `<li>${msg}</li>`).join("") + "</ul>";
-    alert(errorMessages.map((msg) => msg).join('\n'));
+    alert(errorMessages.map((msg) => msg).join("\n"));
   } else {
     errorContainer.innerHTML = "";
     navigateToNext();
   }
 });
 
-//Card and Invoice validation 
+//Card and Invoice validation
 nextButton2.addEventListener("click", function (event) {
   event.preventDefault();
 
@@ -509,13 +525,13 @@ nextButton2.addEventListener("click", function (event) {
 
   const ssnPattern = /^(19|20)?(\d{6}[-+]|\d{8})\d{4}$/;
 
-if (ssnPattern.test(ssnInput.value)) {
-  navigateToNext();
-} else if (cardName !== '' && cardNumber !== '') {
-  navigateToNext()
-} else {
-  alert("Opps! Something went wrong! Please try again.");
-}
+  if (ssnPattern.test(ssnInput.value)) {
+    navigateToNext();
+  } else if (cardName !== "" && cardNumber !== "") {
+    navigateToNext();
+  } else {
+    alert("Opps! Something went wrong! Please try again.");
+  }
 });
 
 prevButtons.forEach((button) => {
@@ -531,26 +547,27 @@ function collectFormData() {
   }
 }
 //Place Order Button - the last step
-const placeOrderButton = document.getElementById('placeOrder');
-placeOrderButton.addEventListener('click', function(event) {
-event.preventDefault();
-personalDataCheckboxChecker();
+const placeOrderButton = document.getElementById("placeOrder");
+placeOrderButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  personalDataCheckboxChecker();
 });
 
 //Checking if personal data is checked or not
 function personalDataCheckboxChecker() {
-  const personalDataCheckbox = document.getElementById('personalDataAccept');
+  const personalDataCheckbox = document.getElementById("personalDataAccept");
   const isPersonalDataChecked = personalDataCheckbox.checked;
 
   //When clicking on place order
   if (isPersonalDataChecked) {
     collectFormData();
-    alert('Thank you for your order!\n\nWe will deliver your donuts to your address within 2 workingdays!\n\nHave a nice day!');
+    alert(
+      "Thank you for your order!\n\nWe will deliver your donuts to your address within 2 workingdays!\n\nHave a nice day!"
+    );
   } else {
-    alert('You need to accept our terms of conditions.');
+    alert("You need to accept our terms of conditions.");
     return;
   }
-
 }
 
 showSection(currentSection);
@@ -574,31 +591,31 @@ const formReset = document.getElementById("checkOutForm");
 formReset.reset();
 
 function toggleMenu() {
-    const menuLinks = document.querySelector('.menu-links');
+  const menuLinks = document.querySelector(".menu-links");
 
-    menu.classList.toggle('active');
-    menuLinks.classList.toggle('active');
-    document.querySelector('.header').classList.toggle('active');
-    menu.classList.contains('active') ? document.body.classList.add('no-scroll') : document.body.classList.remove('no-scroll');
+  menu.classList.toggle("active");
+  menuLinks.classList.toggle("active");
+  document.querySelector(".header").classList.toggle("active");
+  menu.classList.contains("active")
+    ? document.body.classList.add("no-scroll")
+    : document.body.classList.remove("no-scroll");
 }
 
-menu.addEventListener('click', function() {
-    console.log('Toggle Menu!');
-    toggleMenu(); 
-});
-//Order summary 
+menu.addEventListener("click", toggleMenu);
+
+//Order summary
 function addItemToOrderSummary(cartItem) {
-  const orderSummaryTable = document.getElementById('orderSummaryTableItems');
+  const orderSummaryTable = document.getElementById("orderSummaryTableItems");
 
-  const newRow = document.createElement('tr');
+  const newRow = document.createElement("tr");
 
-  const nameCell = document.createElement('td');
+  const nameCell = document.createElement("td");
   nameCell.textContent = cartItem.name;
 
-  const quantityCell = document.createElement('td');
+  const quantityCell = document.createElement("td");
   quantityCell.textContent = cartItem.quantity;
 
-  const priceCell = document.createElement('td');
+  const priceCell = document.createElement("td");
   priceCell.textContent = `${(cartItem.quantity * cartItem.price).toFixed(2)}€`;
 
   newRow.appendChild(nameCell);
@@ -609,12 +626,14 @@ function addItemToOrderSummary(cartItem) {
 }
 //Shopping cart icon and inside of shoppingcart
 function generateShoppingCartItem(cartItem) {
-    const shoppingCartItem = document.createElement('div');
-    shoppingCartItem.classList.add('shopping-cart-item');
-    shoppingCartItem.id = `shoppingCartItem-${cartItem.id}`;
-    shoppingCartItem.innerHTML = `
+  const shoppingCartItem = document.createElement("div");
+  shoppingCartItem.classList.add("shopping-cart-item");
+  shoppingCartItem.id = `shoppingCartItem-${cartItem.id}`;
+  shoppingCartItem.innerHTML = `
         <div class="shopping-cart-button">
-                <button class="shopping-cart-delete-btn" aria-label="remove item from shopping cart" data-id=${cartItem.id}>
+                <button class="shopping-cart-delete-btn" aria-label="remove item from shopping cart" data-id=${
+                  cartItem.id
+                }>
                     <img class="close-icon-img" src=${
                       prefersDarkMode
                         ? "assets/icons/close-icon_white.svg"
@@ -635,8 +654,8 @@ function generateShoppingCartItem(cartItem) {
               cartItem.id
             } data-id=${cartItem.id}>-</button>
             <input type="text" id=shoppingCartInputValue-${cartItem.id} value=${
-      cartItem.quantity
-    }>
+    cartItem.quantity
+  }>
             <button class="shopping-cart-plus-btn" aria-label="Add to shopping cart" id=shoppingCartBtnPlus-${
               cartItem.id
             } data-id=${cartItem.id}>+</button>
@@ -647,89 +666,121 @@ function generateShoppingCartItem(cartItem) {
     </div>
     `;
 
-    return shoppingCartItem;
+  return shoppingCartItem;
 }
 
 //ShoppingCart - Renders items in shoppingcart
 function renderShoppingCartItems() {
-    const shoppingCartItemsContainer = document.getElementById('shoppingCartItems');
-    shoppingCartItemsContainer.innerHTML = '';
+  const shoppingCartItemsContainer =
+    document.getElementById("shoppingCartItems");
+  shoppingCartItemsContainer.innerHTML = "";
 
-    shoppingCart.forEach(cartItem => {
-        const cartItemElement = generateShoppingCartItem(cartItem);
-        shoppingCartItemsContainer.appendChild(cartItemElement);
+  shoppingCart.forEach((cartItem) => {
+    const cartItemElement = generateShoppingCartItem(cartItem);
+    shoppingCartItemsContainer.appendChild(cartItemElement);
 
-        const buttonsDeleteItemsFromCart = cartItemElement.querySelectorAll('.shopping-cart-delete-btn');
-
-        buttonsDeleteItemsFromCart.forEach(button => {
-            button.addEventListener('click', function() {
-                const itemIdToRemove = parseInt(button.getAttribute('data-id'));
-                const itemToRemove = shoppingCart.find(item => item.id === itemIdToRemove);
-                document.querySelector('.amount').textContent = `0.00€`;
-                document.querySelector('.cart-count').textContent = `0`;
-                removeItemFromCart(itemToRemove);
-            });
-        });
-        const shoppingCartBtnAdd = document.querySelector(`#shoppingCartBtnPlus-${cartItem.id}`);
-        shoppingCartBtnAdd.addEventListener('click', function(event) {
-            const target = event.target;
-            if (target.matches(`#shoppingCartBtnPlus-${cartItem.id}`)) {
-                addToShoppingCart(cartItem);
-                const inputElement = cartItemElement.querySelector(`#shoppingCartInputValue-${cartItem.id}`);
-                inputElement.value = cartItem.quantity;
-                const totalPriceElement = cartItemElement.querySelector(`#shoppingCartTotalPrice-${cartItem.id}`);
-                totalPriceElement.textContent = `${parseFloat(cartItem.quantity * cartItem.price).toFixed(2)}€`;
-            }
-        });
-        const shoppingCartBtnRemove = document.querySelector(`#shoppingCartBtnMinus-${cartItem.id}`);
-        shoppingCartBtnRemove.addEventListener('click', function(event) {
-            const target = event.target;
-            if (target.matches(`#shoppingCartBtnMinus-${cartItem.id}`)) {
-                removeFromShoppingCart(cartItem);
-                const inputElement = cartItemElement.querySelector(`#shoppingCartInputValue-${cartItem.id}`);
-                inputElement.value = cartItem.quantity;
-                const totalPriceElement = cartItemElement.querySelector(`#shoppingCartTotalPrice-${cartItem.id}`);
-                totalPriceElement.textContent = `${parseFloat(cartItem.quantity * cartItem.price).toFixed(2)}€`;
-            }
-        });
+    const buttonsDeleteItemsFromCart = cartItemElement.querySelectorAll(
+      ".shopping-cart-delete-btn"
+    );
+    //I use this anonymous function as a callback function for the button event.
+    //I don't use this function for any thing else then this, thats why it is an "anonymous" function.
+    buttonsDeleteItemsFromCart.forEach((button) => {
+      button.addEventListener("click", function () {
+        const itemIdToRemove = parseInt(button.getAttribute("data-id"));
+        const itemToRemove = shoppingCart.find(
+          (item) => item.id === itemIdToRemove
+        );
+        document.querySelector(".amount").textContent = `0.00€`;
+        document.querySelector(".cart-count").textContent = `0`;
+        removeItemFromCart(itemToRemove);
+      });
     });
-    console.log('CartItems are rendered!');
+    const shoppingCartBtnAdd = document.querySelector(
+      `#shoppingCartBtnPlus-${cartItem.id}`
+    );
 
-    //Check-out button in shopping cart
-    const checkOutBtnContainer = document.createElement('div');
-    checkOutBtnContainer.classList.add('check-out-btn-container');
-    const checkOutBtn = document.createElement('button');
-    checkOutBtn.classList.add('check-out-btn');
-    checkOutBtn.id = 'check-out-btn';
-    checkOutBtn.textContent = 'Check Out';
-    checkOutBtnContainer.appendChild(checkOutBtn);
-    shoppingCartItemsContainer.appendChild(checkOutBtnContainer);
-
-    checkOutBtn.addEventListener('click', function() {
-        console.log('Checkout button');
-        startOrderTimer();
-        const totalAmount = shoppingCart.reduce((total, cartItem) => total + (cartItem.quantity * cartItem.price), 0);
-        checkTotalAmountFormInvoice(totalAmount);
-        const checkOutView = document.querySelector(".check-out");
-        const shoppingCartDiv = document.querySelector('.shopping-cart');
-        checkOutView.classList.toggle("active");
-        shoppingCartDiv.classList.remove('active');
-
-      console.log('CLICK!');
-      console.log(shoppingCart);
-      shoppingCart.map((cartItem) => addItemToOrderSummary(cartItem));
-      addToOrderSummarySubTotal(shoppingCart); 
+    //I use this anonymous function as a callback function for the button event.
+    //I don't use this function for any thing else then this, thats why it is an "anonymous" function.
+    shoppingCartBtnAdd.addEventListener("click", function (event) {
+      const target = event.target;
+      if (target.matches(`#shoppingCartBtnPlus-${cartItem.id}`)) {
+        addToShoppingCart(cartItem);
+        const inputElement = cartItemElement.querySelector(
+          `#shoppingCartInputValue-${cartItem.id}`
+        );
+        inputElement.value = cartItem.quantity;
+        const totalPriceElement = cartItemElement.querySelector(
+          `#shoppingCartTotalPrice-${cartItem.id}`
+        );
+        totalPriceElement.textContent = `${parseFloat(
+          cartItem.quantity * cartItem.price
+        ).toFixed(2)}€`;
+      }
     });
+    const shoppingCartBtnRemove = document.querySelector(
+      `#shoppingCartBtnMinus-${cartItem.id}`
+    );
+
+    //I use this anonymous function as a callback function for the button event.
+    //I don't use this function for any thing else then this, thats why it is an "anonymous" function.
+    shoppingCartBtnRemove.addEventListener("click", function (event) {
+      const target = event.target;
+      if (target.matches(`#shoppingCartBtnMinus-${cartItem.id}`)) {
+        removeFromShoppingCart(cartItem);
+        const inputElement = cartItemElement.querySelector(
+          `#shoppingCartInputValue-${cartItem.id}`
+        );
+        inputElement.value = cartItem.quantity;
+        const totalPriceElement = cartItemElement.querySelector(
+          `#shoppingCartTotalPrice-${cartItem.id}`
+        );
+        totalPriceElement.textContent = `${parseFloat(
+          cartItem.quantity * cartItem.price
+        ).toFixed(2)}€`;
+      }
+    });
+  });
+  console.log("CartItems are rendered!");
+
+  //Check-out button in shopping cart
+  const checkOutBtnContainer = document.createElement("div");
+  checkOutBtnContainer.classList.add("check-out-btn-container");
+  const checkOutBtn = document.createElement("button");
+  checkOutBtn.classList.add("check-out-btn");
+  checkOutBtn.id = "check-out-btn";
+  checkOutBtn.textContent = "Check Out";
+  checkOutBtnContainer.appendChild(checkOutBtn);
+  shoppingCartItemsContainer.appendChild(checkOutBtnContainer);
+
+  //I use this anonymous function as a callback function for the button event.
+  //I don't use this function for any thing else then this, thats why it is an "anonymous" function.
+  checkOutBtn.addEventListener("click", function () {
+    console.log("Checkout button");
+    startOrderTimer();
+    const totalAmount = shoppingCart.reduce(
+      (total, cartItem) => total + cartItem.quantity * cartItem.price,
+      0
+    );
+    checkTotalAmountFormInvoice(totalAmount);
+    const checkOutView = document.querySelector(".check-out");
+    const shoppingCartDiv = document.querySelector(".shopping-cart");
+    checkOutView.classList.toggle("active");
+    shoppingCartDiv.classList.remove("active");
+
+    console.log("CLICK!");
+    console.log(shoppingCart);
+    shoppingCart.map((cartItem) => addItemToOrderSummary(cartItem));
+    addToOrderSummarySubTotal(shoppingCart);
+  });
 }
 
 function renderProducts(products) {
   const productItemsUL = document.querySelector("#productItems");
   productItemsUL.innerHTML = "";
 
-
   products.forEach((product) => {
     const li = document.createElement("li");
-    li.classList.add('donut-item');
+    li.classList.add("donut-item");
     li.id = `donut-item-${product.id}`;
 
     //itemImage
@@ -825,164 +876,199 @@ function renderProducts(products) {
     });
   });
 }
-//Star rating for donuts 
+//Star rating for donuts
 function generateStarRating(value) {
-    const maxRating = 5;
-    const fullStar = '★';
-    const emptyStar = '☆';
+  const maxRating = 5;
+  const fullStar = "★";
+  const emptyStar = "☆";
 
-    const fullStars = fullStar.repeat(value);
-    const emptyStars = emptyStar.repeat(maxRating - value);
+  const fullStars = fullStar.repeat(value);
+  const emptyStars = emptyStar.repeat(maxRating - value);
 
-    return fullStars + emptyStars;
+  return fullStars + emptyStars;
 }
 
 //Animation for shoppingcart icon and total amount in header
 function addToShoppingCart(product) {
-    console.log('Product added to Shoppingcart: ', product);
+  console.log("Product added to Shoppingcart: ", product);
 
-    const cartIcon = document.getElementById('cartIcon');
-    cartIcon.classList.add('cart-wiggle');
+  const cartIcon = document.getElementById("cartIcon");
+  cartIcon.classList.add("cart-wiggle");
 
-    cartIcon.addEventListener('animationend', function() {
-        cartIcon.classList.remove('cart-wiggle');
-      });
+  cartIcon.addEventListener("animationend", function () {
+    cartIcon.classList.remove("cart-wiggle");
+  });
 
-    const priceAmount = document.getElementById('menuCartAmount');
-    priceAmount.classList.add('priceAmountZoomIn');
+  const priceAmount = document.getElementById("menuCartAmount");
+  priceAmount.classList.add("priceAmountZoomIn");
 
-    priceAmount.addEventListener('animationend', function() {
-        priceAmount.classList.remove('priceAmountZoomIn');
-    });
+  priceAmount.addEventListener("animationend", function () {
+    priceAmount.classList.remove("priceAmountZoomIn");
+  });
 
-    //Total amount (price)
-    const totalPricePerItem = addToTotalPricePerItem(shoppingCart, product.id, product.price);
-    console.log(`${product.name} added to cart!`);
+  //Total amount (price)
+  const totalPricePerItem = addToTotalPricePerItem(
+    shoppingCart,
+    product.id,
+    product.price
+  );
+  console.log(`${product.name} added to cart!`);
 
-    const indexToAdd = shoppingCart.findIndex(cartItem => cartItem.id === product.id);
-    if (indexToAdd !== -1) {
-        shoppingCart[indexToAdd].quantity++;
-        document.getElementById(`item-amount-${product.id}`).textContent = shoppingCart[indexToAdd].quantity;
-        document.getElementById(`item-total-${product.id}`).textContent = `Total ${parseFloat(totalPricePerItem).toFixed(2)} €`;
-    } else {
-        shoppingCart.push({ ... product, quantity: 1 });
-        document.getElementById(`item-amount-${product.id}`).textContent = 1;
-        document.getElementById(`item-total-${product.id}`).textContent = `Total: ${parseFloat(totalPricePerItem).toFixed(2)} €`;
-    }
-    console.log('VARUKORG: ', shoppingCart);
-    getTotalOfItemsAndPrice(shoppingCart);
+  const indexToAdd = shoppingCart.findIndex(
+    (cartItem) => cartItem.id === product.id
+  );
+  if (indexToAdd !== -1) {
+    shoppingCart[indexToAdd].quantity++;
+    document.getElementById(`item-amount-${product.id}`).textContent =
+      shoppingCart[indexToAdd].quantity;
+    document.getElementById(
+      `item-total-${product.id}`
+    ).textContent = `Total ${parseFloat(totalPricePerItem).toFixed(2)} €`;
+  } else {
+    shoppingCart.push({ ...product, quantity: 1 });
+    document.getElementById(`item-amount-${product.id}`).textContent = 1;
+    document.getElementById(
+      `item-total-${product.id}`
+    ).textContent = `Total: ${parseFloat(totalPricePerItem).toFixed(2)} €`;
+  }
+  console.log("VARUKORG: ", shoppingCart);
+  getTotalOfItemsAndPrice(shoppingCart);
 
-    //calculateShippingCost(shoppingCart);
-    //applyQuantityDiscount(shoppingCart, product.id, 10);
-    //renderShoppingCartItems();
+  //calculateShippingCost(shoppingCart);
+  //applyQuantityDiscount(shoppingCart, product.id, 10);
+  //renderShoppingCartItems();
 }
 
 //Remove item from shoppingcart
 function removeFromShoppingCart(product) {
-    console.log('Product removed from Shoppingcart: ', product);
+  console.log("Product removed from Shoppingcart: ", product);
 
-    const priceAmountEffect = document.getElementById('menuCartAmount');
-    priceAmountEffect.classList.add('priceAmountZoomOut');
+  const priceAmountEffect = document.getElementById("menuCartAmount");
+  priceAmountEffect.classList.add("priceAmountZoomOut");
 
-    priceAmountEffect.addEventListener('animationend', function() {
-        priceAmountEffect.classList.remove('priceAmountZoomOut');
-    });
+  priceAmountEffect.addEventListener("animationend", function () {
+    priceAmountEffect.classList.remove("priceAmountZoomOut");
+  });
 
-    const totalPricePerItem = removeTotalPriceFromItem(shoppingCart, product.id, product.price);
-    console.log(`${product.name} removed from cart!`);
+  const totalPricePerItem = removeTotalPriceFromItem(
+    shoppingCart,
+    product.id,
+    product.price
+  );
+  console.log(`${product.name} removed from cart!`);
 
-    const indexToRemove = shoppingCart.findIndex(cartItem => cartItem.id === product.id);
-    if (indexToRemove !== -1) {
-        if (shoppingCart[indexToRemove].quantity > 0) {
-            shoppingCart[indexToRemove].quantity--;
-            document.getElementById(`item-amount-${product.id}`).textContent = shoppingCart[indexToRemove].quantity;
-            document.getElementById(`item-total-${product.id}`).textContent = `Total: ${parseFloat(totalPricePerItem).toFixed(2)} €`;
-            if (shoppingCart[indexToRemove].quantity === 0) {
-                shoppingCart.splice(indexToRemove, 1);
-                const cartItemElement = document.querySelector(`#shoppingCartItem-${product.id}`);
-                if (cartItemElement) {
-                    cartItemElement.remove();
-                    if (shoppingCart.length === 0) {
-                        const shoppingCart = document.querySelector('.shopping-cart');
-                        shoppingCart.classList.toggle('active');
-                    }
-                }
-            }
+  //I tried to change it, but it didn't work, so i kept this one, because I understand this one better.
+  const indexToRemove = shoppingCart.findIndex(
+    (cartItem) => cartItem.id === product.id
+  );
+  if (indexToRemove !== -1) {
+    if (shoppingCart[indexToRemove].quantity > 0) {
+      shoppingCart[indexToRemove].quantity--;
+      document.getElementById(`item-amount-${product.id}`).textContent =
+        shoppingCart[indexToRemove].quantity;
+      document.getElementById(
+        `item-total-${product.id}`
+      ).textContent = `Total: ${parseFloat(totalPricePerItem).toFixed(2)} €`;
+      if (shoppingCart[indexToRemove].quantity === 0) {
+        shoppingCart.splice(indexToRemove, 1);
+        const cartItemElement = document.querySelector(
+          `#shoppingCartItem-${product.id}`
+        );
+        if (cartItemElement) {
+          cartItemElement.remove();
+          if (shoppingCart.length === 0) {
+            const shoppingCart = document.querySelector(".shopping-cart");
+            shoppingCart.classList.toggle("active");
+          }
         }
+      }
     }
-    getTotalOfItemsAndPrice(shoppingCart);
+  }
+  getTotalOfItemsAndPrice(shoppingCart);
 }
 
+//The same with this one, I did it this way becuase this is a way I understand what I'm doing.
 function removeItemFromCart(cartItem) {
-    console.log('CART ITEMS IN: ', shoppingCart);
-    const indexToRemove = shoppingCart.findIndex(item => item.id === cartItem.id);
-    if (indexToRemove !== -1) {
-        const itemToRemove = shoppingCart[indexToRemove];
-        if (itemToRemove.quantity > 0) {
-            shoppingCart.splice(indexToRemove, 1);
-            const cartItemElement = document.querySelector(`#shoppingCartItem-${cartItem.id}`);
-            if (cartItemElement) {
-                cartItemElement.remove();
-                if (shoppingCart.length === 0) {
-                    const shoppingCart = document.querySelector('.shopping-cart');
-                    shoppingCart.classList.toggle('active');
-                }
-            }
-            getTotalOfItemsAndPrice(shoppingCart);
-            document.querySelector(`#item-total-${cartItem.id}`).textContent = `${parseFloat(totalPrice).toFixed(2)}€`;
-            document.querySelector(`#item-amount-${cartItem.id}`).textContent = `${totalQuantity}`;
+  console.log("CART ITEMS IN: ", shoppingCart);
+  const indexToRemove = shoppingCart.findIndex(
+    (item) => item.id === cartItem.id
+  );
+  if (indexToRemove !== -1) {
+    const itemToRemove = shoppingCart[indexToRemove];
+    if (itemToRemove.quantity > 0) {
+      shoppingCart.splice(indexToRemove, 1);
+      const cartItemElement = document.querySelector(
+        `#shoppingCartItem-${cartItem.id}`
+      );
+      if (cartItemElement) {
+        cartItemElement.remove();
+        if (shoppingCart.length === 0) {
+          const shoppingCart = document.querySelector(".shopping-cart");
+          shoppingCart.classList.toggle("active");
         }
+      }
+      getTotalOfItemsAndPrice(shoppingCart);
+      document.querySelector(
+        `#item-total-${cartItem.id}`
+      ).textContent = `${parseFloat(totalPrice).toFixed(2)}€`;
+      document.querySelector(
+        `#item-amount-${cartItem.id}`
+      ).textContent = `${totalQuantity}`;
     }
-    console.log('CART ITEMS AFTER: ', shoppingCart);
+  }
+  console.log("CART ITEMS AFTER: ", shoppingCart);
 }
 
 function addToTotalPricePerItem(shoppingCart, itemId, itemPrice) {
-    let totalPricePerItem = itemPrice;
+  let totalPricePerItem = itemPrice;
 
-    shoppingCart.forEach(item => {
-        if (item.id === itemId) {
-            if (item.quantity > 0) {
-                totalPricePerItem += item.price * item.quantity;
-            } else {
-                totalPricePerItem = item.price;
-            }
-        }
-    });
+  shoppingCart.forEach((item) => {
+    if (item.id === itemId) {
+      if (item.quantity > 0) {
+        totalPricePerItem += item.price * item.quantity;
+      } else {
+        totalPricePerItem = item.price;
+      }
+    }
+  });
 
-    return totalPricePerItem;
+  return totalPricePerItem;
 }
 
 function removeTotalPriceFromItem(shoppingCart, itemId, itemPrice) {
-    let totalPricePerItem = itemPrice;
+  let totalPricePerItem = itemPrice;
 
-    shoppingCart.forEach(item => {
-        if (item.id === itemId) {
-            if (item.quantity > 0) {
-                totalPricePerItem += (item.price * item.quantity) - item.price - item.price;
-            } else {
-                totalPricePerItem = item.price;
-            }
-        }
-    });
+  shoppingCart.forEach((item) => {
+    if (item.id === itemId) {
+      if (item.quantity > 0) {
+        totalPricePerItem +=
+          item.price * item.quantity - item.price - item.price;
+      } else {
+        totalPricePerItem = item.price;
+      }
+    }
+  });
 
-    return parseFloat(totalPricePerItem).toFixed(2);
+  return parseFloat(totalPricePerItem).toFixed(2);
 }
 
 function getTotalOfItemsAndPrice(shoppingCart) {
-    let totalQuantity = 0;
-    let totalPrice = 0;
+  let totalQuantity = 0;
+  let totalPrice = 0;
 
-    shoppingCart.forEach(cartItem => {
-        totalQuantity += cartItem.quantity;
-        totalPrice += cartItem.price * cartItem.quantity;
-    });
-        document.querySelector('.amount').textContent = `${parseFloat(totalPrice).toFixed(2)}€`;
-        document.querySelector('.cart-count').textContent = `${totalQuantity}`;
+  shoppingCart.forEach((cartItem) => {
+    totalQuantity += cartItem.quantity;
+    totalPrice += cartItem.price * cartItem.quantity;
+  });
+  document.querySelector(".amount").textContent = `${parseFloat(
+    totalPrice
+  ).toFixed(2)}€`;
+  document.querySelector(".cart-count").textContent = `${totalQuantity}`;
 
-    return {
-        totalQuantity: totalQuantity,
-        totalPrice: parseFloat(totalPrice).toFixed(2)
-    };
+  return {
+    totalQuantity: totalQuantity,
+    totalPrice: parseFloat(totalPrice).toFixed(2),
+  };
 }
 const { totalQuantity, totalPrice } = getTotalOfItemsAndPrice(shoppingCart);
 
@@ -990,38 +1076,43 @@ const { totalQuantity, totalPrice } = getTotalOfItemsAndPrice(shoppingCart);
 function addToOrderSummarySubTotal(shoppingCart) {
   let totalPrice = 0;
 
-  shoppingCart.forEach(cartItem => {    
+  shoppingCart.forEach((cartItem) => {
     totalPrice += cartItem.price * cartItem.quantity;
   });
 
-  const orderSummarySubTotal = document.getElementById('SSubTotal');
+  const orderSummarySubTotal = document.getElementById("SSubTotal");
   orderSummarySubTotal.textContent = `${parseFloat(totalPrice).toFixed(2)}€`;
 
   let shippingCost = calculateShippingCost(shoppingCart);
-  let mondayDiscount = applyMondayDiscount(totalPrice) ? applyMondayDiscount(totalPrice) : 0;
+  let mondayDiscount = applyMondayDiscount(totalPrice)
+    ? applyMondayDiscount(totalPrice)
+    : 0;
 
-  let grandTotalPrice = parseFloat(totalPrice += shippingCost -= mondayDiscount).toFixed(2);
-  console.log(`SubTotal: ${totalPrice}€\nShippingcost: ${shippingCost}€\nMonday Discount: -${mondayDiscount}€\nGrand Total: ${grandTotalPrice}€`);
-
+  let grandTotalPrice = parseFloat(
+    (totalPrice += shippingCost -= mondayDiscount)
+  ).toFixed(2);
+  console.log(
+    `SubTotal: ${totalPrice}€\nShippingcost: ${shippingCost}€\nMonday Discount: -${mondayDiscount}€\nGrand Total: ${grandTotalPrice}€`
+  );
 
   //show the Grand Total.
-  const orderSummaryGrandTotal = document.getElementById('SGrandTotal');
+  const orderSummaryGrandTotal = document.getElementById("SGrandTotal");
   orderSummaryGrandTotal.textContent = `${parseFloat(totalPrice).toFixed(2)}€`;
 }
 
 //If Scrolling it changes color on header
 let prevScrollPos = window.scrollY;
-const topbar = document.querySelector('.header');
+const topbar = document.querySelector(".header");
 
-window.addEventListener('scroll', function() {
+window.addEventListener("scroll", function () {
   const currentScrollPos = window.scrollY;
-  
+
   if (prevScrollPos > currentScrollPos) {
-    topbar.classList.remove('scroll');
+    topbar.classList.remove("scroll");
   } else {
-    topbar.classList.add('scroll');
+    topbar.classList.add("scroll");
   }
-  
+
   prevScrollPos = currentScrollPos;
 });
 
@@ -1033,16 +1124,16 @@ function applyMondayDiscount(orderTotal) {
   const dayOfWeek = today.getDay();
 
   if (dayOfWeek === 1 && today.getHours() < 10) {
-      console.log('Monday Discount: -10%');
-      console.log(orderTotal);
-      let orderTotalPrice = (orderTotal * 0.1);
+    console.log("Monday Discount: -10%");
+    console.log(orderTotal);
+    let orderTotalPrice = orderTotal * 0.1;
 
-      const orderSummaryDiscount = document.getElementById('orderDiscount');
-      const discountText = document.createElement("p");
-      discountText.textContent = `Monday 10% Off: -${orderTotalPrice}€`;
-      orderSummaryDiscount.appendChild(discountText);
+    const orderSummaryDiscount = document.getElementById("orderDiscount");
+    const discountText = document.createElement("p");
+    discountText.textContent = `Monday 10% Off: -${orderTotalPrice}€`;
+    orderSummaryDiscount.appendChild(discountText);
 
-      return orderTotalPrice;
+    return orderTotalPrice;
   }
 }
 
@@ -1052,13 +1143,18 @@ function applyWeekendSurcharge(products) {
   const dayOfWeek = today.getDay();
   const currentHour = today.getHours();
 
-  if ((dayOfWeek === 5 && currentHour >= 15) || dayOfWeek === 6 || (dayOfWeek === 1 && currentHour < 3) || dayOfWeek === 0) {
-      const weekendSurcharge = 1.15;
+  if (
+    (dayOfWeek === 5 && currentHour >= 15) ||
+    dayOfWeek === 6 ||
+    (dayOfWeek === 1 && currentHour < 3) ||
+    dayOfWeek === 0
+  ) {
+    const weekendSurcharge = 1.15;
 
-      products.forEach((product) => {
-          product.price *= weekendSurcharge;
-          product.price = +product.price.toFixed(2);
-      });
+    products.forEach((product) => {
+      product.price *= weekendSurcharge;
+      product.price = +product.price.toFixed(2);
+    });
   }
   return products;
 }
@@ -1067,45 +1163,55 @@ function applyWeekendSurcharge(products) {
 
 //10% discount if you buy more than 10 of the same donut.
 function applyQuantityDiscount(shoppingCart, itemId, discountPercentage) {
-  const itemToDiscount = shoppingCart.find(item => item.id === itemId);
+  const itemToDiscount = shoppingCart.find((item) => item.id === itemId);
 
   if (itemToDiscount) {
-      if (itemToDiscount.quantity > 9 && !itemToDiscount.discountApplied) {
-          const originalPrice = itemToDiscount.price;
-          const discountedPrice = originalPrice * (1 - discountPercentage / 100);
-          itemToDiscount.price = parseFloat(discountedPrice.toFixed(2));
-          itemToDiscount.discountApplied = true;
-          console.log(`Bulk discount of ${discountPercentage}% applied to item ${itemId}. New price: ${itemToDiscount.price}`);
-      } else if (itemToDiscount.quantity < 10 && itemToDiscount.discountApplied) {
-          itemToDiscount.price = itemToDiscount.originalPrice;
-          itemToDiscount.discountApplied = false;
-          console.log(`Bulk discount removed from item ${itemId}. Original price restored: ${itemToDiscount.price}`);
-      } else {
-          console.log(`No changes in discount applied to item ${itemId}.`);
-      }
+    if (itemToDiscount.quantity > 9 && !itemToDiscount.discountApplied) {
+      const originalPrice = itemToDiscount.price;
+      const discountedPrice = originalPrice * (1 - discountPercentage / 100);
+      itemToDiscount.price = parseFloat(discountedPrice.toFixed(2));
+      itemToDiscount.discountApplied = true;
+      console.log(
+        `Bulk discount of ${discountPercentage}% applied to item ${itemId}. New price: ${itemToDiscount.price}`
+      );
+    } else if (itemToDiscount.quantity < 10 && itemToDiscount.discountApplied) {
+      itemToDiscount.price = itemToDiscount.originalPrice;
+      itemToDiscount.discountApplied = false;
+      console.log(
+        `Bulk discount removed from item ${itemId}. Original price restored: ${itemToDiscount.price}`
+      );
+    } else {
+      console.log(`No changes in discount applied to item ${itemId}.`);
+    }
   } else {
-      console.log(`Item with ID ${itemId} not found in shopping cart.`);
+    console.log(`Item with ID ${itemId} not found in shopping cart.`);
   }
 }
 
 //Shipping Cost
 function calculateShippingCost(shoppingCart) {
-  const totalQuantity = shoppingCart.reduce((acc, item) => acc + item.quantity, 0);
+  const totalQuantity = shoppingCart.reduce(
+    (acc, item) => acc + item.quantity,
+    0
+  );
 
   if (totalQuantity >= 15) {
     return 0; // Free Shipping!
   } else {
-    const totalPrice = shoppingCart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-    const shippingCost = (2.20 + (totalPrice * 0.1)).toFixed(2);
-    console.log('Shopping Cart Total Price: ' + totalPrice.toFixed(2));
-    console.log('Shipping Cost: ' + shippingCost);
-    const summaryShipping = document.getElementById('orderShipping');
+    const totalPrice = shoppingCart.reduce(
+      (acc, item) => acc + item.price * item.quantity,
+      0
+    );
+    const shippingCost = (2.2 + totalPrice * 0.1).toFixed(2);
+    console.log("Shopping Cart Total Price: " + totalPrice.toFixed(2));
+    console.log("Shipping Cost: " + shippingCost);
+    const summaryShipping = document.getElementById("orderShipping");
     summaryShipping.textContent = `Shippingcost: ${shippingCost}€`;
     return shippingCost; // Parse the result to a float and return
   }
 }
 //The webshop will reload if their is not a placed order within 15 minutes
-const orderForm = document.getElementById('checkOutForm');
+const orderForm = document.getElementById("checkOutForm");
 
 function clearOrderForm() {
   orderForm.reset();
@@ -1118,7 +1224,7 @@ function startOrderTimer() {
 }
 
 //If amount is over 80€ you can not choose to pay with invoice
-const invoicePaymentOption = document.querySelector('.invoice-option-button');
+const invoicePaymentOption = document.querySelector(".invoice-option-button");
 
 function checkTotalAmountFormInvoice(totalAmount) {
   if (totalAmount > 80) {
@@ -1133,48 +1239,46 @@ function checkTotalAmountFormInvoice(totalAmount) {
 //Filters - Rating, high to low price, low to high price and a to z and z to a
 
 //FilterAndSortProducts('', 0, 0, ''); // Original Array
-    // filterAndSortProducts('', 0, 0, 'a-z / z-a');
-    // filterAndSortProducts('', 0, 0, 'category');
-    // filterAndSortProducts('categoryName', 0, 0, '');
-    // filterAndSortProducts('', 0, 0, 'price-low-high / price-high-low');
-    // filterAndSortProducts('', 0, 0, 'rating-high-low');
-    // filterAndSortProducts('', 0, min-rating, 'rating-high-low');
-    // filterAndSortProducts('', min-price, 0, 'rating-high-low');
+// filterAndSortProducts('', 0, 0, 'a-z / z-a');
+// filterAndSortProducts('', 0, 0, 'category');
+// filterAndSortProducts('categoryName', 0, 0, '');
+// filterAndSortProducts('', 0, 0, 'price-low-high / price-high-low');
+// filterAndSortProducts('', 0, 0, 'rating-high-low');
+// filterAndSortProducts('', 0, min-rating, 'rating-high-low');
+// filterAndSortProducts('', min-price, 0, 'rating-high-low');
 
-    const filterButton = document.getElementById('filterIcon');
-    filterButton.addEventListener('click', function() {
-      const filterView = document.getElementById('filterView');
-      filterView.classList.toggle('active');
-    });
+const filterButton = document.getElementById("filterIcon");
+filterButton.addEventListener("click", function () {
+  const filterView = document.getElementById("filterView");
+  filterView.classList.toggle("active");
+});
 
-const filterRatingCheckbox = document.getElementById('filterTopRated');
-const filterSortPrice = document.getElementById('filterSortOrderLH');
-const filterSortName = document.getElementById('filterSortOrderAZ');
+const filterRatingCheckbox = document.getElementById("filterTopRated");
+const filterSortPrice = document.getElementById("filterSortOrderLH");
+const filterSortName = document.getElementById("filterSortOrderAZ");
 
-filterRatingCheckbox.addEventListener('change', applyFilters);
-filterSortPrice.addEventListener('change', applyFilters);
-filterSortName.addEventListener('change', applyFilters);
+filterRatingCheckbox.addEventListener("change", applyFilters);
+filterSortPrice.addEventListener("change", applyFilters);
+filterSortName.addEventListener("change", applyFilters);
 
 function applyFilters() {
   const isCheckedRating = filterRatingCheckbox.checked;
   const sortPriceValue = filterSortPrice.value;
   const sortNameValue = filterSortName.value;
 
-  if (sortPriceValue === 'low-to-high') {
-    renderProducts(filterAndSortProducts('', 0, 0, 'price-low-high'));
-  } else if (sortPriceValue === 'high-to-low') {
-    renderProducts(filterAndSortProducts('', 0, 0, 'price-high-low'));
+  if (sortPriceValue === "low-to-high") {
+    renderProducts(filterAndSortProducts("", 0, 0, "price-low-high"));
+  } else if (sortPriceValue === "high-to-low") {
+    renderProducts(filterAndSortProducts("", 0, 0, "price-high-low"));
   } else {
     if (isCheckedRating) {
-      renderProducts(filterAndSortProducts('', 0, 0, 'rating-high-low'));
-    } else if (sortNameValue === 'a-to-z') {
-      renderProducts(filterAndSortProducts('', 0, 0, 'a-z'));
-    } else if (sortNameValue === 'z-to-a') {
-      renderProducts(filterAndSortProducts('', 0, 0, 'z-a'));
+      renderProducts(filterAndSortProducts("", 0, 0, "rating-high-low"));
+    } else if (sortNameValue === "a-to-z") {
+      renderProducts(filterAndSortProducts("", 0, 0, "a-z"));
+    } else if (sortNameValue === "z-to-a") {
+      renderProducts(filterAndSortProducts("", 0, 0, "z-a"));
     } else {
-      renderProducts(filterAndSortProducts('', 0, 0, ''));
+      renderProducts(filterAndSortProducts("", 0, 0, ""));
     }
   }
 }
-
-}); //DOM

@@ -11,77 +11,6 @@ button {
     cursor: pointer;
 }
 
-/* DARKMODE STYLING */
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #645662;
-        color: white;
-    }
-    .header {
-        background-color: #4b4049 !important;
-    }
-    .cart-count {
-        background-color: #645662 !important;
-    }
-
-    .hamburger-menu .bar {
-        background-color: white !important;
-    }
-
-    .shopping-cart {
-        background-color: #645662 !important;
-    }
-
-    .shopping-cart.active {
-        background-color: #645662 !important;
-    }
-
-    .shopping-cart-item {
-        background-color: #645662 !important;
-        
-    }
-
-    .shopping-cart-item span {
-        color: white !important;
-    }
-
-    .shopping-cart-item input {
-        color: white !important;
-    }
-
-    .shopping-cart-btn span img {
-        color: white !important;
-    }
-
-    .menu-links.active {
-        background-color: rgba(99, 84, 97, 0.800);
-        backdrop-filter: blur(5px);
-    }
-
-    .menu-items a {
-        color: white !important;
-    }
-
-    .checkout-section {
-        background-color: #645662 !important;
-        color: white !important;
-    }
-
-    .checkbox-discount-container p {
-        color: white !important;
-    }
-
-    .check-out-btn {
-        background: #f293e7 !important;
-    }
-
-    .filter-view {
-        background-color: #645662 !important;
-        color: white;
-    }
-}
-
 /* HEADER */
 
 .header {
@@ -1104,5 +1033,76 @@ h2 {
 .invoice-option-button:disabled {
     background-color: lightgray;
     color: #aaa;
+}
+
+/* DARKMODE STYLING */
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #645662;
+        color: white;
+    }
+    .header {
+        background-color: #4b4049;
+    }
+    .cart-count {
+        background-color: #645662;
+    }
+
+    .hamburger-menu .bar {
+        background-color: white;
+    }
+
+    .shopping-cart {
+        background-color: #645662;
+    }
+
+    .shopping-cart.active {
+        background-color: #645662;
+    }
+
+    .shopping-cart-item {
+        background-color: #645662;
+        
+    }
+
+    .shopping-cart-item span {
+        color: white;
+    }
+
+    .shopping-cart-item input {
+        color: white;
+    }
+
+    .shopping-cart-btn span img {
+        color: white;
+    }
+
+    .menu-links.active {
+        background-color: rgba(99, 84, 97, 0.800);
+        backdrop-filter: blur(5px);
+    }
+
+    .menu-items a {
+        color: white;
+    }
+
+    .checkout-section {
+        background-color: #645662;
+        color: white;
+    }
+
+    .checkbox-discount-container span {
+        color: white;
+    }
+
+    .check-out-btn {
+        background: #f293e7;
+    }
+
+    .filter-view {
+        background-color: #645662;
+        color: white;
+    }
 }
 
