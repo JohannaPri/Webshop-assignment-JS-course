@@ -178,11 +178,14 @@ function filterAndSortProducts(
 
   return filteredProducts;
 }
-//When window onload (are loaded)
-window.onload = function () {
+//When document is loading - call loadProducts function 
+function loadProducts() {
+  console.log("Loading Products!");
   let productsFromArray = [...productsArray];
   fetchAndUpdateProduct(productsFromArray);
-};
+}
+
+document.addEventListener("DOMContentLoaded", loadProducts);
 
 function fetchAndUpdateProduct(products) {
   //applyQuantityDiscount(products);
@@ -192,204 +195,209 @@ function fetchAndUpdateProduct(products) {
 //Thats why you can see that I have been using innerHTML, createElement and the HTML-file.
 //InnerHTML including the header and menu.
 document.querySelector("#header").innerHTML = `
-<main class="main" id="main">
-<div class="content">
-  <header>
-    <div class="header">
-      <div class="header-inner">
-        <button class="hamburger-menu" aria-label="open menu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </button>
-        <div class="menu-logo">Donut Factory</div>
-        <div class="cart-total">
-          <span class="amount" id="menuCartAmount">0.00€</span>
-          <button class="cart-icon" id="cartIcon" aria-label="Shopping Cart Button">
-            <img class="icon-svg" src="assets/icons/shopping-cart_dark.svg" width="27" height="27" alt="Icon for shopping cart">
-            <span class="cart-count" id="menuCartCount">0</span>
+  <main class="main" id="main">
+  <div class="content">
+    <header>
+      <div class="header">
+        <div class="header-inner">
+          <button class="hamburger-menu" aria-label="open menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
           </button>
+          <div class="menu-logo">Donut Factory</div>
+          <div class="cart-total">
+            <span class="amount" id="menuCartAmount">0.00€</span>
+            <button class="cart-icon" id="cartIcon" aria-label="Shopping Cart Button">
+              <img class="icon-svg" src="assets/icons/shopping-cart_dark.svg" width="27" height="27" alt="Icon for shopping cart">
+              <span class="cart-count" id="menuCartCount">0</span>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-      <ul class="product-items" id="productItems"></ul>
-  </header>
-  <button class="filter-icon" id="filterIcon" aria-label="Filter button">
-  <img class="filter-icon-svg" src="assets/icons/filter-list.svg" width="35" height="35" alt="Icon to filter the donuts">
-  </button>
-  <nav class="menu-links" id="menu-links">
-  <ul class="menu-items">
-      <li><a href="#products">About us</a></li>
-      <li><a href="#products">Products</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#contact">Deals</a></li>
-  </ul>
-  </nav>
-</div>
-</main>
-`;
+        <ul class="product-items" id="productItems"></ul>
+    </header>
+    <button class="filter-icon" id="filterIcon" aria-label="Filter button">
+    <img class="filter-icon-svg" src="assets/icons/filter-list.svg" width="35" height="35" alt="Icon to filter the donuts">
+    </button>
+    <nav class="menu-links" id="menu-links">
+    <ul class="menu-items">
+        <li><a href="#products">About us</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact">Deals</a></li>
+    </ul>
+    </nav>
+  </div>
+  </main>
+  `;
 
 //InnerHTML - checkout with all sections
 document.querySelector("#checkOut").innerHTML = `
-<div class="check-out-form">
-            <form id="checkOutForm">
-              <div class="checkout-section" id="section1">
-                  <h2>Shipping Details</h2>
-
-                  <label for="firstName">First Name:</label>
-                  <input type="text" id="firstName" name="firstName" required>
-
-                  <label for="lastName">Last Name:</label>
-                  <input type="text" id="lastName" name="lastname" required>
-
-                  <label for="email">Email:</label>
-                  <input type="email" id="email" name="email" required>
-
-                  <label for="phoneNumber">Phone Number:</label>
-                  <input type="tel" id="phoneNumber" name="phonenumber" required>
-
-                  <label for="address">Address:</label>
-                  <input type="text" id="address" name="address" required>
-
-                  <label for="zipCode">Zip Code:</label>
-                  <input type="text" id="zipCode" name="zipcode" required>
-                  
-                  <label for="city">City:</label>
-                  <input type="text" id="city" name="city" required>
-                  
-                  <label for="pinCode">Pin Code:</label>
-                  <input type="text" id="pinCode" name="pincode">
-
-                  <div class="button-container">
-                    <div id="errorMessages"></div>
-                      <button id="checkOutNext1" type="button">Next</button>
-                  </div>
-              </div>
-              <div class="checkout-section" id="section2">
-                  <h2>Payment Details</h2>
-                  <div class="payment-options-container">
-                      <h3 class="payment-options-title">CHOOSE</h3>
-                      <div class="payment-options-button-container">
-                          <button class="card-option-button">Card</button>
-                          <span class="option-or-text">or</span>
-                          <button class="invoice-option-button">Invoice</button>
-                      </div>
-                  </div>
-                  <div class="card-details">
-                      <label for="cardHolderName">Name on Card:</label>
-                      <input type="text" id="cardHolderName" name="cardHolderName" required>
+  <div class="check-out-form">
+              <form id="checkOutForm">
+                <div class="checkout-section" id="section1">
+                    <h2>Shipping Details</h2>
+  
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" required>
+  
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastname" required>
+  
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+  
+                    <label for="phoneNumber">Phone Number:</label>
+                    <input type="tel" id="phoneNumber" name="phonenumber" required>
+  
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" required>
+  
+                    <label for="zipCode">Zip Code:</label>
+                    <input type="text" id="zipCode" name="zipcode" required>
                     
-                      <label for="cardNumber">Card Number:</label>
-                      <input type="text" id="cardNumber" name="cardNumber" required>
-                
-                      <div class="card-container">
-                        <div class="expire-date">
-                          <label for="expireDate">Expiry Date:</label>
-                          <input type="text" id="expireDate" name="expireDate" placeholder="MM/YY" required>
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city" required>
+                    
+                    <label for="pinCode">Pin Code:</label>
+                    <input type="text" id="pinCode" name="pincode">
+  
+                    <div class="button-container">
+                      <div id="errorMessages"></div>
+                        <button id="checkOutNext1" type="button">Next</button>
+                    </div>
+                </div>
+                <div class="checkout-section" id="section2">
+                    <h2>Payment Details</h2>
+                    <div class="payment-options-container">
+                        <h3 class="payment-options-title">CHOOSE</h3>
+                        <div class="payment-options-button-container">
+                            <button class="card-option-button">Card</button>
+                            <span class="option-or-text">or</span>
+                            <button class="invoice-option-button">Invoice</button>
                         </div>
-                        <div class="security-code">
-                          <label for="securityCode">Security Code:</label>
-                          <input type="text" id="securityCode" name="securityCode" placeholder="CVC">
+                    </div>
+                    <div class="card-details">
+                        <label for="cardHolderName">Name on Card:</label>
+                        <input type="text" id="cardHolderName" name="cardHolderName" required>
+                      
+                        <label for="cardNumber">Card Number:</label>
+                        <input type="text" id="cardNumber" name="cardNumber" required>
+                  
+                        <div class="card-container">
+                          <div class="expire-date">
+                            <label for="expireDate">Expiry Date:</label>
+                            <input type="text" id="expireDate" name="expireDate" placeholder="MM/YY" required>
+                          </div>
+                          <div class="security-code">
+                            <label for="securityCode">Security Code:</label>
+                            <input type="text" id="securityCode" name="securityCode" placeholder="CVC">
+                          </div>
                         </div>
                       </div>
+                      <div class="invoice-details">
+                        <label for="socialSecurityNumber">Social Security Number:</label>
+                        <input type="text" id="socialSecurityNumber" name="socialSecurityNumber" placeholder="19880708-3568">
+                      </div>
+                    <div class="button-container">
+                      <button id="checkOutPrevious1" type="button">Previous</button>
+                      <button id="checkOutNext2" type="button">Next</button>
                     </div>
-                    <div class="invoice-details">
-                      <label for="socialSecurityNumber">Social Security Number:</label>
-                      <input type="text" id="socialSecurityNumber" name="socialSecurityNumber" placeholder="19880708-3568">
+                </div> 
+                <div class="checkout-section" id="section3">
+                    <h2>Order Details</h2>
+  
+                    <table class="checkout-information">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Quantity</th>
+                          <th>Price</th>
+                        </tr>
+                      </thead>
+                      <tbody class="order-summary-table-items" id="orderSummaryTableItems">
+                      </tbody>
+                    </table>
+  
+  
+                    <div class="checkout-price-amount">
+                      <div class="order-subtotal" id="orderSubTotal">Subtotal: <span id="SSubTotal">0.00€</span></div>
+                      <div class="order-discount" id="orderDiscount">Discount(S): <span id="SDiscount"></span></div>
+                      <div class="order-shipping" id="orderShipping">Shipping: <span id="SShipping">0.00€</span></div>
+                      <div class="order-grandtotal" id="orderGrandTotal">Grandtotal: <span id="SGrandTotal">0.00€</span></div>
                     </div>
-                  <div class="button-container">
-                    <button id="checkOutPrevious1" type="button">Previous</button>
-                    <button id="checkOutNext2" type="button">Next</button>
-                  </div>
-              </div> 
-              <div class="checkout-section" id="section3">
-                  <h2>Order Details</h2>
-
-                  <table class="checkout-information">
-                    <thead>
-                      <tr>
-                        <th>Name</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                      </tr>
-                    </thead>
-                    <tbody class="order-summary-table-items" id="orderSummaryTableItems">
-                    </tbody>
-                  </table>
-
-
-                  <div class="checkout-price-amount">
-                    <div class="order-subtotal" id="orderSubTotal">Subtotal: <span id="SSubTotal">0.00€</span></div>
-                    <div class="order-discount" id="orderDiscount">Discount(S): <span id="SDiscount"></span></div>
-                    <div class="order-shipping" id="orderShipping">Shipping: <span id="SShipping">0.00€</span></div>
-                    <div class="order-grandtotal" id="orderGrandTotal">Grandtotal: <span id="SGrandTotal">0.00€</span></div>
-                  </div>
-                  
-                  <div class="checkbox-discount-container">
-                  <div class="discount-code">
-                  <label for="discountCode">Discount Code:</label>
-                  <input type="text" id="discountCode" name="discountCode">
-                  </div>
-                  <div class="checkbox-containers" id="personalDataProcessing">
-                    <div class="personaldata-container">
-                      <label for="personalDataAccept">
-                        <input type="checkbox" id="personalDataAccept" name="personalDataProcessing" aria-label=" accept personal data processing" >
-                        <span>I agree with the conditions</span>
+                    
+                    <div class="checkbox-discount-container">
+                    <div class="discount-code">
+                    <label for="discountCode">Discount Code:</label>
+                    <input type="text" id="discountCode" name="discountCode">
+                    </div>
+                    <div class="checkbox-containers" id="personalDataProcessing">
+                      <div class="personaldata-container">
+                        <label for="personalDataAccept">
+                          <input type="checkbox" id="personalDataAccept" name="personalDataProcessing" aria-label=" accept personal data processing" >
+                          <span>I agree with the conditions</span>
+                        </label>
+                      </div>
+                      <div class="newsletter-container" id="newsLetterSubscription">
+                      <label for="newsLetter">
+                        <input type="checkbox" id="newsLetter" aria-label="checkbox to subscribe on newsletter" name="newsLetterSubscription" checked>
+                        <span>Subscribe to Our Newsletter</span>
                       </label>
                     </div>
-                    <div class="newsletter-container" id="newsLetterSubscription">
-                    <label for="newsLetter">
-                      <input type="checkbox" id="newsLetter" aria-label="checkbox to subscribe on newsletter" name="newsLetterSubscription" checked>
-                      <span>Subscribe to Our Newsletter</span>
-                    </label>
                   </div>
+                    </div>
+                    <div class="button-container order-summary">
+                        <button id="checkOutReset" type="button">Reset All</button>
+                        <button id="checkOutPrevious2" type="button">Previous</button>
+                        <button id="placeOrder" type="submit">Place Order</button>
+                    </div>
                 </div>
-                  </div>
-                  <div class="button-container order-summary">
-                      <button id="checkOutReset" type="button">Reset All</button>
-                      <button id="checkOutPrevious2" type="button">Previous</button>
-                      <button id="placeOrder" type="submit">Place Order</button>
-                  </div>
-              </div>
-          </form>
-          </div>
-`;
+            </form>
+            </div>
+  `;
 
 //Filter innerHTML
 document.querySelector("#filterDiv").innerHTML = `
-<div class="filter-view" id="filterView">
-    <h2>Filter Options</h2>
-    <div class="filters">
-        <label>
-            <input type="checkbox" id="filterTopRated" aria-label="check-box to filter the donuts">
-            <span>Top Rated</span>
-        </label>
-        <select id="filterSortOrderLH">
-            <option value="">Sort by price</option>
-            <option value="low-to-high">Low to High Price</option>
-            <option value="high-to-low">High to Low Price</option>
-        </select>
-        <select id="filterSortOrderAZ">
-            <option value="">Sort by name</option>
-            <option value="a-to-z">A to Z Name</option>
-            <option value="z-to-a">Z to A Name</option>
-        </select>
-    </div>
-</div>
-`;
+  <div class="filter-view" id="filterView">
+      <h2>Filter Options</h2>
+      <div class="filters">
+          <label>
+              <input type="checkbox" id="filterTopRated" aria-label="check-box to filter the donuts">
+              <span>Top Rated</span>
+          </label>
+          <select id="filterSortOrderLH">
+              <option value="">Sort by price</option>
+              <option value="low-to-high">Low to High Price</option>
+              <option value="high-to-low">High to Low Price</option>
+          </select>
+          <select id="filterSortOrderAZ">
+              <option value="">Sort by name</option>
+              <option value="a-to-z">A to Z Name</option>
+              <option value="z-to-a">Z to A Name</option>
+          </select>
+      </div>
+  </div>
+  `;
 
 //Button (icon) to get to shoppingcart
-const shoppingCartButton = document.querySelector("#cartIcon");
-shoppingCartButton.addEventListener("click", function () {
+function toggleShoppingCart() {
   const shoppingCart = document.querySelector(".shopping-cart");
   const checkOutView = document.querySelector(".check-out");
   shoppingCart.classList.toggle("active");
   checkOutView.classList.remove("active");
-  shoppingCart.classList.contains("active")
-    ? document.body.classList.add("no-scroll")
-    : document.body.classList.remove("no-scroll");
+
+  if (shoppingCart.classList.contains("active")) {
+    document.body.classList.add("no-scroll");
+  } else {
+    document.body.classList.remove("no-scroll");
+  }
   renderShoppingCartItems();
-});
+}
+
+const shoppingCartButton = document.querySelector("#cartIcon");
+shoppingCartButton.addEventListener("click", toggleShoppingCart);
 
 const menu = document.querySelector(".hamburger-menu");
 
@@ -630,43 +638,83 @@ function generateShoppingCartItem(cartItem) {
   shoppingCartItem.classList.add("shopping-cart-item");
   shoppingCartItem.id = `shoppingCartItem-${cartItem.id}`;
   shoppingCartItem.innerHTML = `
-        <div class="shopping-cart-button">
-                <button class="shopping-cart-delete-btn" aria-label="remove item from shopping cart" data-id=${
-                  cartItem.id
-                }>
-                    <img class="close-icon-img" src=${
-                      prefersDarkMode
-                        ? "assets/icons/close-icon_white.svg"
-                        : "assets/icons/close-icon_dark.svg"
-                    } width="24" height="24" alt="Icon to remove donut" width="24" height="24" aria-label="Button to remove donut from shopping cart">
-                </button>
-        </div>
-        <div class="shopping-cart-item-img">
-            <img src=${cartItem.imageURL} alt=${cartItem.name}>
-        </div>
-        <div class="shopping-cart-description">
-            <span class="desc-title">${cartItem.name}</span>
-            <span class="desc-category">${cartItem.category}</span>
-            <span class="desc-desc">${cartItem.description}</span>
-        </div>
-        <div class="shopping-cart-quantity">
-            <button class="shopping-cart-minus-btn" aria-label="Remove from shopping cart" id=shoppingCartBtnMinus-${
-              cartItem.id
-            } data-id=${cartItem.id}>-</button>
-            <input type="text" id=shoppingCartInputValue-${cartItem.id} value=${
-    cartItem.quantity
-  }>
-            <button class="shopping-cart-plus-btn" aria-label="Add to shopping cart" id=shoppingCartBtnPlus-${
-              cartItem.id
-            } data-id=${cartItem.id}>+</button>
-        </div>
-        <div class="shopping-cart-total-price" id=shoppingCartTotalPrice-${
-          cartItem.id
-        }>${parseFloat(cartItem.quantity * cartItem.price).toFixed(2)} €</div>
-    </div>
-    `;
+          <div class="shopping-cart-button">
+                  <button class="shopping-cart-delete-btn" aria-label="remove item from shopping cart" data-id=${
+                    cartItem.id
+                  }>
+                      <img class="close-icon-img" src=${
+                        prefersDarkMode
+                          ? "assets/icons/close-icon_white.svg"
+                          : "assets/icons/close-icon_dark.svg"
+                      } width="24" height="24" alt="Icon to remove donut" width="24" height="24" aria-label="Button to remove donut from shopping cart">
+                  </button>
+          </div>
+          <div class="shopping-cart-item-img">
+              <img src=${cartItem.imageURL} alt=${cartItem.name}>
+          </div>
+          <div class="shopping-cart-description">
+              <span class="desc-title">${cartItem.name}</span>
+              <span class="desc-category">${cartItem.category}</span>
+              <span class="desc-desc">${cartItem.description}</span>
+          </div>
+          <div class="shopping-cart-quantity">
+              <button class="shopping-cart-minus-btn" aria-label="Remove from shopping cart" id=shoppingCartBtnMinus-${
+                cartItem.id
+              } data-id=${cartItem.id}>-</button>
+              <input type="text" id=shoppingCartInputValue-${
+                cartItem.id
+              } value=${cartItem.quantity}>
+              <button class="shopping-cart-plus-btn" aria-label="Add to shopping cart" id=shoppingCartBtnPlus-${
+                cartItem.id
+              } data-id=${cartItem.id}>+</button>
+          </div>
+          <div class="shopping-cart-total-price" id=shoppingCartTotalPrice-${
+            cartItem.id
+          }>${parseFloat(cartItem.quantity * cartItem.price).toFixed(2)} €</div>
+      </div>
+      `;
 
   return shoppingCartItem;
+}
+
+//Function to handle add button click
+function handleAddButtonClick(cartItem, cartItemElement) {
+  return function (event) {
+    const target = event.target;
+    if (target.matches(`#shoppingCartBtnPlus-${cartItem.id}`)) {
+      addToShoppingCart(cartItem);
+      const inputElement = cartItemElement.querySelector(
+        `#shoppingCartInputValue-${cartItem.id}`
+      );
+      inputElement.value = cartItem.quantity;
+      const totalPriceElement = cartItemElement.querySelector(
+        `#shoppingCartTotalPrice-${cartItem.id}`
+      );
+      totalPriceElement.textContent = `${parseFloat(
+        cartItem.quantity * cartItem.price
+      ).toFixed(2)}€`;
+    }
+  };
+}
+
+//Function to handle remove button click
+function handleRemoveButtonClick(cartItem, cartItemElement) {
+  return function (event) {
+    const target = event.target;
+    if (target.matches(`#shoppingCartBtnMinus-${cartItem.id}`)) {
+      removeFromShoppingCart(cartItem);
+      const inputElement = cartItemElement.querySelector(
+        `#shoppingCartInputValue-${cartItem.id}`
+      );
+      inputElement.value = cartItem.quantity;
+      const totalPriceElement = cartItemElement.querySelector(
+        `#shoppingCartTotalPrice-${cartItem.id}`
+      );
+      totalPriceElement.textContent = `${parseFloat(
+        cartItem.quantity * cartItem.price
+      ).toFixed(2)}€`;
+    }
+  };
 }
 
 //ShoppingCart - Renders items in shoppingcart
@@ -675,6 +723,19 @@ function renderShoppingCartItems() {
     document.getElementById("shoppingCartItems");
   shoppingCartItemsContainer.innerHTML = "";
 
+  //Function to handle delete button click
+  function handleDeleteItemClick(event) {
+    const button = event.currentTarget;
+    const itemIdToRemove = parseInt(button.getAttribute("data-id"));
+    const itemToRemove = shoppingCart.find(
+      (item) => item.id === itemIdToRemove
+    );
+    document.querySelector(".amount").textContent = `0.00€`;
+    document.querySelector(".cart-count").textContent = `0`;
+    removeItemFromCart(itemToRemove);
+  }
+
+  //Attach eventlisteners to the loop itself
   shoppingCart.forEach((cartItem) => {
     const cartItemElement = generateShoppingCartItem(cartItem);
     shoppingCartItemsContainer.appendChild(cartItemElement);
@@ -682,64 +743,28 @@ function renderShoppingCartItems() {
     const buttonsDeleteItemsFromCart = cartItemElement.querySelectorAll(
       ".shopping-cart-delete-btn"
     );
-    //I use this anonymous function as a callback function for the button event.
-    //I don't use this function for any thing else then this, thats why it is an "anonymous" function.
+
     buttonsDeleteItemsFromCart.forEach((button) => {
-      button.addEventListener("click", function () {
-        const itemIdToRemove = parseInt(button.getAttribute("data-id"));
-        const itemToRemove = shoppingCart.find(
-          (item) => item.id === itemIdToRemove
-        );
-        document.querySelector(".amount").textContent = `0.00€`;
-        document.querySelector(".cart-count").textContent = `0`;
-        removeItemFromCart(itemToRemove);
-      });
+      button.addEventListener("click", handleDeleteItemClick);
     });
-    const shoppingCartBtnAdd = document.querySelector(
+
+    const shoppingCartBtnAdd = cartItemElement.querySelector(
       `#shoppingCartBtnPlus-${cartItem.id}`
     );
-
-    //I use this anonymous function as a callback function for the button event.
-    //I don't use this function for any thing else then this, thats why it is an "anonymous" function.
-    shoppingCartBtnAdd.addEventListener("click", function (event) {
-      const target = event.target;
-      if (target.matches(`#shoppingCartBtnPlus-${cartItem.id}`)) {
-        addToShoppingCart(cartItem);
-        const inputElement = cartItemElement.querySelector(
-          `#shoppingCartInputValue-${cartItem.id}`
-        );
-        inputElement.value = cartItem.quantity;
-        const totalPriceElement = cartItemElement.querySelector(
-          `#shoppingCartTotalPrice-${cartItem.id}`
-        );
-        totalPriceElement.textContent = `${parseFloat(
-          cartItem.quantity * cartItem.price
-        ).toFixed(2)}€`;
-      }
-    });
-    const shoppingCartBtnRemove = document.querySelector(
-      `#shoppingCartBtnMinus-${cartItem.id}`
+    shoppingCartBtnAdd.addEventListener(
+      "click",
+      handleAddButtonClick(cartItem, cartItemElement)
     );
 
-    //I use this anonymous function as a callback function for the button event.
-    //I don't use this function for any thing else then this, thats why it is an "anonymous" function.
-    shoppingCartBtnRemove.addEventListener("click", function (event) {
-      const target = event.target;
-      if (target.matches(`#shoppingCartBtnMinus-${cartItem.id}`)) {
-        removeFromShoppingCart(cartItem);
-        const inputElement = cartItemElement.querySelector(
-          `#shoppingCartInputValue-${cartItem.id}`
-        );
-        inputElement.value = cartItem.quantity;
-        const totalPriceElement = cartItemElement.querySelector(
-          `#shoppingCartTotalPrice-${cartItem.id}`
-        );
-        totalPriceElement.textContent = `${parseFloat(
-          cartItem.quantity * cartItem.price
-        ).toFixed(2)}€`;
-      }
-    });
+    const shoppingCartBtnRemove = cartItemElement.querySelector(
+      `#shoppingCartBtnMinus-${cartItem.id}`
+    );
+    shoppingCartBtnRemove.addEventListener(
+      "click",
+      handleRemoveButtonClick(cartItem, cartItemElement)
+    );
   });
+
   console.log("CartItems are rendered!");
 
   //Check-out button in shopping cart
@@ -752,26 +777,26 @@ function renderShoppingCartItems() {
   checkOutBtnContainer.appendChild(checkOutBtn);
   shoppingCartItemsContainer.appendChild(checkOutBtnContainer);
 
-  //I use this anonymous function as a callback function for the button event.
-  //I don't use this function for any thing else then this, thats why it is an "anonymous" function.
-  checkOutBtn.addEventListener("click", function () {
-    console.log("Checkout button");
-    startOrderTimer();
-    const totalAmount = shoppingCart.reduce(
-      (total, cartItem) => total + cartItem.quantity * cartItem.price,
-      0
-    );
-    checkTotalAmountFormInvoice(totalAmount);
-    const checkOutView = document.querySelector(".check-out");
-    const shoppingCartDiv = document.querySelector(".shopping-cart");
-    checkOutView.classList.toggle("active");
-    shoppingCartDiv.classList.remove("active");
+  checkOutBtn.addEventListener("click", handleCheckoutButtonClick);
+}
 
-    console.log("CLICK!");
-    console.log(shoppingCart);
-    shoppingCart.map((cartItem) => addItemToOrderSummary(cartItem));
-    addToOrderSummarySubTotal(shoppingCart);
-  });
+function handleCheckoutButtonClick() {
+  console.log("Checkout button");
+  startOrderTimer();
+  const totalAmount = shoppingCart.reduce(
+    (total, cartItem) => total + cartItem.quantity * cartItem.price,
+    0
+  );
+  checkTotalAmountFormInvoice(totalAmount);
+  const checkOutView = document.querySelector(".check-out");
+  const shoppingCartDiv = document.querySelector(".shopping-cart");
+  checkOutView.classList.toggle("active");
+  shoppingCartDiv.classList.remove("active");
+
+  console.log("CLICK!");
+  console.log(shoppingCart);
+  shoppingCart.forEach((cartItem) => addItemToOrderSummary(cartItem));
+  addToOrderSummarySubTotal(shoppingCart);
 }
 
 function renderProducts(products) {
@@ -867,45 +892,45 @@ function renderProducts(products) {
     //Append all li to the main ul (show on screen)
     productItemsUL.appendChild(li);
 
-    //Buttons for adding and removing the choosen item to/from shoppingcart array.
-    btnPlus.addEventListener("click", function () {
-      addToShoppingCart(product);
-    });
-    btnMinus.addEventListener("click", function () {
-      removeFromShoppingCart(product);
-    });
+    btnPlus.addEventListener("click", handleAddButtonClick(product));
+    btnMinus.addEventListener("click", handleRemoveButtonClick(product));
   });
+  //Add to shoppingcart
+  function handleAddButtonClick(product) {
+    return function () {
+      addToShoppingCart(product);
+    };
+  }
+  //Remove from shoppingcart
+  function handleRemoveButtonClick(product) {
+    return function () {
+      removeFromShoppingCart(product);
+    };
+  }
 }
 //Star rating for donuts
 function generateStarRating(value) {
   const maxRating = 5;
   const fullStar = "★";
   const emptyStar = "☆";
-
   const fullStars = fullStar.repeat(value);
   const emptyStars = emptyStar.repeat(maxRating - value);
-
   return fullStars + emptyStars;
 }
 
 //Animation for shoppingcart icon and total amount in header
 function addToShoppingCart(product) {
   console.log("Product added to Shoppingcart: ", product);
-
   const cartIcon = document.getElementById("cartIcon");
   cartIcon.classList.add("cart-wiggle");
-
   cartIcon.addEventListener("animationend", function () {
     cartIcon.classList.remove("cart-wiggle");
   });
-
   const priceAmount = document.getElementById("menuCartAmount");
   priceAmount.classList.add("priceAmountZoomIn");
-
   priceAmount.addEventListener("animationend", function () {
     priceAmount.classList.remove("priceAmountZoomIn");
   });
-
   //Total amount (price)
   const totalPricePerItem = addToTotalPricePerItem(
     shoppingCart,
@@ -957,37 +982,53 @@ function removeFromShoppingCart(product) {
   );
   console.log(`${product.name} removed from cart!`);
 
-  //I tried to change it, but it didn't work, so i kept this one, because I understand this one better.
+  function decreaseCartItemQuantity(indexToRemove, product, totalPricePerItem) {
+    if (shoppingCart[indexToRemove].quantity > 0) {
+      shoppingCart[indexToRemove].quantity--;
+      updateCartItemDisplay(product, indexToRemove, totalPricePerItem);
+      if (shoppingCart[indexToRemove].quantity === 0) {
+        removeCartItem(indexToRemove, product);
+      }
+    }
+  }
+
+  function updateCartItemDisplay(product, indexToRemove, totalPricePerItem) {
+    const quantityElement = document.getElementById(
+      `item-amount-${product.id}`
+    );
+    const totalElement = document.getElementById(`item-total-${product.id}`);
+
+    quantityElement.textContent = shoppingCart[indexToRemove].quantity;
+    totalElement.textContent = `Total: ${parseFloat(totalPricePerItem).toFixed(
+      2
+    )} €`;
+  }
+
+  function removeCartItem(indexToRemove, product) {
+    shoppingCart.splice(indexToRemove, 1);
+    const cartItemElement = document.querySelector(
+      `#shoppingCartItem-${product.id}`
+    );
+    if (cartItemElement) {
+      cartItemElement.remove();
+      if (shoppingCart.length === 0) {
+        const shoppingCartDiv = document.querySelector(".shopping-cart");
+        shoppingCartDiv.classList.toggle("active");
+      }
+    }
+  }
+
   const indexToRemove = shoppingCart.findIndex(
     (cartItem) => cartItem.id === product.id
   );
   if (indexToRemove !== -1) {
-    if (shoppingCart[indexToRemove].quantity > 0) {
-      shoppingCart[indexToRemove].quantity--;
-      document.getElementById(`item-amount-${product.id}`).textContent =
-        shoppingCart[indexToRemove].quantity;
-      document.getElementById(
-        `item-total-${product.id}`
-      ).textContent = `Total: ${parseFloat(totalPricePerItem).toFixed(2)} €`;
-      if (shoppingCart[indexToRemove].quantity === 0) {
-        shoppingCart.splice(indexToRemove, 1);
-        const cartItemElement = document.querySelector(
-          `#shoppingCartItem-${product.id}`
-        );
-        if (cartItemElement) {
-          cartItemElement.remove();
-          if (shoppingCart.length === 0) {
-            const shoppingCart = document.querySelector(".shopping-cart");
-            shoppingCart.classList.toggle("active");
-          }
-        }
-      }
-    }
+    decreaseCartItemQuantity(indexToRemove, product, totalPricePerItem);
   }
   getTotalOfItemsAndPrice(shoppingCart);
 }
 
-//The same with this one, I did it this way becuase this is a way I understand what I'm doing.
+//I did it this way becuase this is a way I understand what I'm doing.
+//That's why I kept this.
 function removeItemFromCart(cartItem) {
   console.log("CART ITEMS IN: ", shoppingCart);
   const indexToRemove = shoppingCart.findIndex(
@@ -1104,17 +1145,19 @@ function addToOrderSummarySubTotal(shoppingCart) {
 let prevScrollPos = window.scrollY;
 const topbar = document.querySelector(".header");
 
-window.addEventListener("scroll", function () {
-  const currentScrollPos = window.scrollY;
+function handleScroll() {
+  const currentScrollPosition = window.scrollY;
 
-  if (prevScrollPos > currentScrollPos) {
+  if (prevScrollPos > currentScrollPosition) {
     topbar.classList.remove("scroll");
   } else {
     topbar.classList.add("scroll");
   }
 
-  prevScrollPos = currentScrollPos;
-});
+  prevScrollPos = currentScrollPosition;
+}
+
+window.addEventListener("scroll", handleScroll);
 
 //Special rules
 
@@ -1248,10 +1291,13 @@ function checkTotalAmountFormInvoice(totalAmount) {
 // filterAndSortProducts('', min-price, 0, 'rating-high-low');
 
 const filterButton = document.getElementById("filterIcon");
-filterButton.addEventListener("click", function () {
+
+function toggleFilterView() {
   const filterView = document.getElementById("filterView");
   filterView.classList.toggle("active");
-});
+}
+
+filterButton.addEventListener("click", toggleFilterView);
 
 const filterRatingCheckbox = document.getElementById("filterTopRated");
 const filterSortPrice = document.getElementById("filterSortOrderLH");
