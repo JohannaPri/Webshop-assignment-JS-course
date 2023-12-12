@@ -10,7 +10,7 @@ Webbshoppen är inte aktiv och fungerar inte att beställa från. The webshop is
 #### Content
 I have during this assignment been using following components:
 
-- JavaScript 
+- Vanilla JavaScript 
 - HTML 
 - CSS (Sass)
 
